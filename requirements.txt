@@ -89,7 +89,7 @@ mysqlclient==2.2.7
 namex==0.0.8
 networkx==3.4.2
 nltk==3.9.1
-numpy==1.21.6
+numpy==2.0.2
 openai==0.28.0
 opencv-python==4.10.0.84
 openpyxl==3.1.5
@@ -123,7 +123,7 @@ PyPDF2==3.0.1
 PySocks==1.7.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
-python-magic==0.4.18
+python-magic-bin==0.4.14
 pytz==2024.1
 pywsd==1.2.5
 PyYAML==6.0.2
