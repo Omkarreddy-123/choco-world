@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+      color: white;
+    }
+
+    .profile-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .profile-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff6b6b, #f06595);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 20px;
+      margin-right: 10px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s ease, background 0.5s ease;
+    }
+
+    .profile-icon:hover {
+      transform: rotate(360deg) scale(1.1);
+      background: linear-gradient(45deg, #845ec2, #d65db1);
+    }
+
+    .profile-menu {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #fff;
+      color: #333;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .profile-menu a {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    .profile-menu a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .show-menu {
+      display: flex;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tab:hover {
+      background-color: #f0f0f0;
+    }
+
+    .tab.active {
+      border-bottom: 2px solid #ff6b6b;
+      color: #ff6b6b;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .login-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1001;
+    }
+
+    .login-modal h2 {
+      margin: 0 0 15px;
+    }
+
+    .login-modal input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .login-modal button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(45deg, #ff6b6b, #f06595);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .login-modal button:hover {
+      opacity: 0.9;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="profile-container" onclick="handleProfileClick()">
+      <div class="profile-icon" id="profileIcon">P</div>
+      <span id="profile-name">Profile</span>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="login-modal" id="loginModal">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter your name" required>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('profile')">Profile</div>
+    <div class="tab" onclick="switchTab('orders')">Previous Orders</div>
+    <div class="tab" onclick="switchTab('address')">Address</div>
+  </div>
+
+  <div class="tab-content active" id="profile">
+    <h2>Edit Profile</h2>
+    <form id="profileForm">
+      <input type="text" id="editName" placeholder="Name" required>
+      <input type="email" id="editEmail" placeholder="Email" required>
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+
+  <div class="tab-content" id="orders">
+    <h2>Previous Orders</h2>
+    <ul id="ordersList">
+      <li>No previous orders</li>
+    </ul>
+  </div>
+
+  <div class="tab-content" id="address">
+    <h2>Address</h2>
+    <form id="addressForm">
+      <input type="text" id="editAddress" placeholder="Address" required>
+      <button type="submit">Save Address</button>
+    </form>
+  </div>
+
+  <script>
+    const profileMenu = document.getElementById('profileMenu');
+    const overlay = document.getElementById('overlay');
+    const loginModal = document.getElementById('loginModal');
+    const profileName = document.getElementById('profile-name');
+    const profileIcon = document.getElementById('profileIcon');
+
+    function handleProfileClick() {
+      const isLoggedIn = localStorage.getItem('username');
+      if (isLoggedIn) {
+        profileMenu.classList.toggle('show-menu');
+      } else {
+        showLoginModal();
+      }
+    }
+
+    function showLoginModal() {
+      overlay.classList.add('show');
+      loginModal.style.display = 'block';
+    }
+
+    function hideLoginModal() {
+      overlay.classList.remove('show');
+      loginModal.style.display = 'none';
+    }
+
+    function login() {
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+
+      if (username && email) {
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+        updateProfileInfo();
+        hideLoginModal();
+      } else {
+        alert('Please fill in all fields');
+      }
+    }
+
+    function updateProfileInfo() {
+      const username = localStorage.getItem('username');
+      const email = localStorage.getItem('email');
+
+      if (username && email) {
+        profileName.textContent = username;
+        profileIcon.textContent = username.charAt(0).toUpperCase();
+      }
+    }
+
+    function logout() {
+      localStorage.clear();
+      profileName.textContent = 'Profile';
+      profileIcon.textContent = 'P';
+      profileMenu.classList.remove('show-menu');
+    }
+
+    function switchTab(tab) {
+      const allTabs = document.querySelectorAll('.tab');
+      const allContents = document.querySelectorAll('.tab-content');
+      allTabs.forEach(t => t.classList.remove('active'));
+      allContents.forEach(c => c.classList.remove('active'));
+
+      document.getElementById(tab).classList.add('active');
+      document.querySelector(`.tab[onclick="switchTab('${tab}')"]`).classList.add('active');
+    }
+
+    document.getElementById('profileForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('editName').value;
+      const email = document.getElementById('editEmail').value;
+      localStorage.setItem('username', name);
+      localStorage.setItem('email', email);
+      updateProfileInfo();
+      alert('Profile updated successfully');
+    });
+
+    document.getElementById('addressForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const address = document.getElementById('editAddress').value;
+      localStorage.setItem('address', address);
+      alert('Address saved');
+    });
+
+    // Initialize profile info on page load
+    updateProfileInfo();
+  </script>
+</body>
+</html>

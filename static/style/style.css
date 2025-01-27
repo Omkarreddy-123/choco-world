@@ -1,0 +1,704 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Add horizontal overflow hidden */
+    position: relative; /* Add relative positioning to contain absolute elements */
+}
+
+#header {
+    border: 2px solid rgb(98, 80, 71);
+    background-color: #463126;
+    color: white;
+    font-size: 0.8925rem;
+    width: 100%;
+    position: flex;    
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1000; 
+}
+
+#navbar {
+    position:absolute; /* Use fixed positioning to align with the header */
+    top: 50px; /* Set the navbar directly below the header (height of the header) */
+    width: 100%;
+    z-index: 1000; 
+    height: 70px;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Distribute items across the navbar */
+    align-items: center; /* Vertically center the items */
+    padding: 0 20px; /* Add padding for spacing */
+    transition: background-color 0.3s ease;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1; /* Allow navbar items to take up available space */
+}
+
+#navbar li {
+    margin: 0 20px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-family: Simply-ChocolateBold, sans-serif !important; /* Ensure the font is applied */
+    font-weight: 900;
+    transition: color 0.3s ease;
+}
+
+#navbar a:hover {
+    color: black;
+}
+
+#navbar:hover {
+    background-color: white;
+}
+
+#navbar:hover a {
+    color: black; /* Change the text color to black when hovering over navbar */
+}
+
+/* Hover effect for #navbar-right elements (select and icons) */
+#navbar:hover #navbar-right label,
+#navbar:hover #navbar-right select,
+#navbar:hover #search-icon,
+#navbar:hover #bag-icon {
+    color: black; /* Change the text color to black */
+    border-color: black; /* Change the border color to black for select */
+}
+
+#navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+#navbar-right label {
+    color: white;
+    margin-right: 10px;
+}
+
+/* Style for the select element to match the <a> tag */
+#navbar-right select {
+    padding: 5px 10px;
+    background-color: transparent; /* Transparent background */
+    border: none;
+    color: white; /* Text color to match the navbar */
+    font-size: 0.9rem; /* Match the font size of the links */
+    font-family: Simply-ChocolateBold, sans-serif !important; /* Ensure consistent font */
+    font-weight: lighter;
+    transition: color 0.3s ease; /* Smooth transition */
+    text-decoration: none;
+}
+
+#navbar-right select:hover {
+    color: black; /* Change the text color on hover */
+}
+
+#search-icon {
+    font-size: 1.5rem;
+    margin-right: 25px;
+    cursor: pointer;
+    color: white; /* Ensure icons are white */
+}
+#bag-icon{
+    font-size: 1.5rem;
+    margin-right: 25px;
+    cursor: pointer;
+    color: white;
+
+}
+
+#body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/Hero_Web_desk_2024_19.webp'); /* Correct path */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: Makes the background fixed when scrolling */
+    height: 65vh;
+    width: 100%; /* Ensures full width */
+    color: white; /* Default text color */
+    padding-top: 120px; /* Adjust the body padding to account for the fixed header and navbar */
+}
+
+
+#text{
+    padding-top: 100px;
+    padding-left: 75px;
+    margin-bottom: 10px;
+    font-size: 3.5rem;
+    font-family:"Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold ;
+    letter-spacing: -1px;
+}
+#para{
+    padding-left: 75px;
+    margin-top: 1%;
+    font-family:Arial Narrow, sans-serif;
+    font-weight: bold;
+}
+#Chocolatebar {
+    background-color: white;
+    margin-left: 75px;
+    height: 44px;
+    width: 183.51px;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    border: 2px solid white; /* Add border for better hover effect */
+    border-radius: 10px;
+    margin-top: 1%;
+    font-weight: bolder;
+    color: black; /* Default text color */
+    text-align: center;
+    display: inline-block;
+    line-height: 44px; /* Vertically align text inside the button */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#Chocolatebar:hover {
+    background-color: transparent; /* Make the background transparent */
+    color: white; /* Change the text color to white */
+    border-color: white; /* Keep the border white */
+    transition:  0.3s ease; /* Smooth transition for hover effect */
+    cursor: pointer; /* Add a pointer cursor for better UX */
+    font-weight: bolder;
+}
+
+#image1{
+    height: 100px;
+    margin-top: 3%;
+    border: 2px solid white;
+    position: absolute;
+    left: 20%;
+    background-color: rgb(231, 228, 228);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#image2{
+    height: 100px;
+    margin-top: 3%;
+    border: 2px solid white;
+    position: absolute;
+    left: 30%;
+    background-color: rgb(231, 228, 228);
+    border-radius: 50%;
+    cursor: pointer;
+}
+#image3{
+    height: 100px;
+    margin-top: 3%;
+    border: 2px solid white;
+    position: absolute;
+    left: 40%;
+    background-color: rgb(231, 228, 228);
+    border-radius: 50%;
+    cursor: pointer;
+}
+#image4{
+    height: 100px;
+    margin-top: 3%;
+    border: 2px solid white;
+    position: absolute;
+    left: 50%;
+    background-color: rgb(231, 228, 228);
+    border-radius: 50%;
+    cursor: pointer;
+}
+#image5{
+    height: 100px;
+    margin-top: 3%;
+    border: 2px solid white;
+    position: absolute;
+    left: 60%;
+    background-color: rgb(231, 228, 228);
+    border-radius: 50%;
+    cursor: pointer;
+}
+#image6{
+    height: 100px;
+    margin-top: 3%;
+    border: 2px solid white;
+    position: absolute;
+    left: 70%;
+    background-color: rgb(231, 228, 228);
+    border-radius: 50%;
+}
+#News{
+    position: absolute;
+    top: 108%;
+    left: 22%;
+    font-family: Franklin Gothic Medium;
+}
+#chocolate_bars{
+    position: absolute;
+    top: 108%;
+    left: 31%;
+    font-family: Franklin Gothic Medium;
+}
+#protein{
+    position: absolute;
+    top: 108%;
+    left: 41%;
+    font-family: Franklin Gothic Medium;
+}
+#bites{
+    position: absolute;
+    top: 108%;
+    left: 52.5%;
+    font-family: Franklin Gothic Medium;
+}
+#gift{
+    position: absolute;
+    top: 108%;
+    left: 61.5%;
+    font-family: Franklin Gothic Medium;
+}
+#cubes{
+    position: absolute;
+    top: 108%;
+    left: 72%;
+    font-family: Franklin Gothic Medium;
+}
+#readmore{
+    position: relative;
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    border: 2px solid rgb(231, 228, 228);
+    background-color: rgb(231, 228, 228);
+    padding: 10px;
+    width: auto;
+    text-align: center;
+    height: 295px;
+}
+#read{
+    padding-top: 10px;
+    font-family: Franklin Gothic small;
+    font-size: 80%;
+}
+#para1{
+    font-size: 20px;
+    padding-left: 280px;
+    padding-right: 280px;
+    font-weight: 100;
+}
+#readmorehere{
+    color: black;
+    font-family: Franklin Gothic Medium;
+    font-size: small;
+}
+#city{
+    position: relative;
+    top: 40%;
+    left: 38%;
+    font-size: 150%;
+    font-family: "Simply-ChocolateCOMPBold", sans-serif !important;
+}
+#collection{
+    height: 550px;
+    position: absolute;
+    left: -20%;
+    margin-top: 18px;
+    font-weight: bolder;
+}
+#collection2{
+    height: 270px;
+    position: absolute;
+    left: 20%;
+    border: 2px solid rgb(231, 228, 228);
+    background-color: rgb(231, 228, 228);
+    position: absolute;
+    top: 300%;
+    left: 21%;
+}
+#para2{
+    position: absolute;
+    top: 1200%;
+    left: 21%;
+    font-size: small;
+    color: rgb(120, 111, 111);
+    border: 2px solid white;
+    text-align: center;
+    width: 275px;
+
+
+}
+#text1{
+    position: absolute;
+    top: 1300%;
+    left: 23.5%;
+    font-size: medium;
+    font-weight:900;
+    color: black;
+    font-family: "Simply-ChocolateCOMPBold", sans-serif !important;
+    letter-spacing: -1px;
+    border: 2px solid white;
+    text-align: center;
+    width: 205px;
+}
+#viewproducts{
+    position: absolute;
+    top: 1600%;
+    left: 26%;
+    width: 140px;
+    height: 40px;
+    text-align: center;
+    background-color: #463126;
+    color: white;
+    border-radius: 25px;
+}
+#viewproducts:hover{
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    transition-duration: 0.2s;
+}
+#euro2{
+    color:rgb(120, 111, 111);
+    font-weight:bold;
+}
+.dot-container {
+    display: flex; /* Align dots in a row */
+    justify-content: center; /* Center the dots horizontally */
+    align-items: center; /* Vertically align the dots */
+    position: absolute; /* Allow precise positioning */
+    top: 1800%; /* Position from the top */
+    left: 30.5%; /* Position from the left */
+    transform: translate(-50%, -50%); /* Center the container precisely */
+}   
+.dot-container button {
+    background: none; /* Ensure the dots have no background */
+    border: none; /* Remove any borders */
+    font-size: 1.5rem; /* Adjust size of the dots */
+    cursor: pointer; /* Change cursor to pointer */
+    margin: 0 1px; /* Add horizontal gap between dots */
+    color: black; /* Default color for the dots */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+
+.hero-section {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images\\Design_uden_navn_15.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 70vh;
+    width: 100%;
+    position: relative;
+    top: 135%;
+    color: white;
+    font-family: 'Anton', sans-serif; /* Changed from serif to ensure Anton is primary */
+}
+
+.content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+}
+
+/* Add specific styling for the heading */
+.content-wrapper h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.9rem;
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+}
+
+/* Add specific styling for the subtitle */
+.content-wrapper p {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    background: white;
+    color: black;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+#inspire{
+    position: absolute;
+    top: 360%;
+    left: 40%;
+    font-size:120%;
+    font-family: "Simply-ChocolateCOMPBold", sans-serif !important;
+    letter-spacing: -2px;
+}  
+.image-row {
+    display: flex; /* Arrange images in a row */
+    justify-content: left; /* Align items from left to right */
+    position: absolute;
+    left: -165%;
+    gap: 35px; /* Increased space between images */
+    padding: 15px; /* Added padding around the row */
+  }
+  
+  .image-item {
+    border: 2px solid #ccc; /* Slightly thicker border */
+    padding: 20px; /* Increased padding inside each box */
+    text-align: center; /* Center-align the content */
+    width: 400px; /* Increased width of the boxes */
+    height: auto; /* Adjusted to accommodate text */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visuals */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    background-color: #f9f9f9; /* Light background color for contrast */
+  }
+  
+  .image-item img {
+    max-width: 100%; /* Ensure the image fits the box */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 4px; /* Slightly round the image corners */
+  }
+  
+  .image-item p {
+    margin-top: 10px; /* Space between the image and text */
+    font-size: 15px; /* Adjust font size for readability */
+    color: #958f8f; /* Text color */
+    font-family: "Simply-ChocolateCOMPBold", sans-serif !important;
+    letter-spacing: 1px;
+  }
+  
+  .bottom-navbar {
+    border: 2px solid rgb(98, 80, 71);
+    background-color: #463126;
+    color: white;
+    font-size: 0.8925rem;
+    width: 500%;
+    position: absolute;
+    top: 550%;
+    height: 580px;
+}
+  
+  .bottom-navbar p {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    padding: 40px 60px; /* Add padding for clickable area */
+    border-radius: 4px; /* Rounded corners for hover effect */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    font-size: 190%;
+    font-weight: bolder;
+  }
+
+  .bottom_table th {
+    padding: 20px 80px; /* Adjust as needed for column spacing */
+    font-size: 150%;
+    font-weight: bolder;
+    text-align: left; /* Optional: Align text to the left */
+}
+
+.bottom_table tbody th {
+    font-size: 100%; /* Adjust font size for body rows */
+    font-weight: normal; /* Optional: Normal weight for body rows */
+    padding: 10px 90px; /* Adjust for body rows */
+    color: rgb(202, 190, 190);
+    text-decoration: none;
+}
+.bottom_table a{
+    color:rgb(202, 190, 190);
+    text-decoration: none;
+}
+
+#gov{
+    position:absolute;
+    top:450%;
+    left:6%;
+    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
+    letter-spacing: -1.5px;
+}
+#para4{
+    position:absolute;
+    top:470%;
+    left:6%;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+#arrow{
+    position: absolute;
+    top: 650%;
+    left: 39%;
+    font-size: 150%;
+    cursor: pointer;
+    color: #d5d1d1;
+
+}
+#arrow2{
+    position: absolute;
+    top: 650%;
+    left: 19%;
+    font-size: 150%;
+    cursor: pointer;
+    color: #d5d1d1;
+
+}
+/* Dropdown Styling */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: row; /* Arrange items in a row */
+    justify-content: space-around; /* Space out the items evenly */
+    padding: 1rem; /* Add padding for better spacing */
+    min-width: 100%; /* Ensure it stretches across the width */
+    z-index: 1000;
+  }
+  
+  .dropdown a {
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add hover transition */
+  }
+  
+  .dropdown img {
+    height: 250px; /* Increase image size */
+    width: 250px; /* Increase image size */
+    border-radius: 10px; /* Add rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .dropdown img:hover {
+    transform: scale(1.1); /* Enlarge image on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+  }
+  
+  /* Keep Dropdown Visible on Hover */
+  .nav-item:hover .dropdown,
+  .dropdown:hover {
+    display: flex;
+  }
+  #search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#search-container {
+    background: white;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#search-results {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-result-item:hover {
+    background-color: #f5f5f5;
+}
+
+.search-result-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.search-result-item .product-details {
+    flex-grow: 1;
+}
+
+.search-result-item .product-name {
+    font-weight: bold;
+}
+
+.search-result-item .product-description {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.search-result-item .product-price {
+    color: #4a4a4a;
+    font-weight: bold;
+}
+
+#profile-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    
+}
+
+#profile-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#profile-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#profile-container li {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+#profile-container button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    
+}

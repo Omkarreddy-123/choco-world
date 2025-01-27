@@ -1,0 +1,865 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Add horizontal overflow hidden */
+    position: relative; /* Add relative positioning to contain absolute elements */
+}
+
+#header {
+    border: 2px solid rgb(98, 80, 71);
+    background-color: #463126;
+    color: white;
+    font-size: 0.8925rem;
+    width: 100%;
+    position: flex;    
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1000; 
+}
+
+#navbar {
+    position:absolute; /* Use fixed positioning to align with the header */
+    top: 50px; /* Set the navbar directly below the header (height of the header) */
+    width: 100%;
+    z-index: 1000; 
+    height: 70px;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Distribute items across the navbar */
+    align-items: center; /* Vertically center the items */
+    padding: 0 20px; /* Add padding for spacing */
+    transition: background-color 0.3s ease;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1; /* Allow navbar items to take up available space */
+}
+
+#navbar li {
+    margin: 0 20px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-family: Simply-ChocolateBold, sans-serif !important; /* Ensure the font is applied */
+    font-weight: 900;
+    transition: color 0.3s ease;
+}
+
+#navbar a:hover {
+    color: black;
+}
+
+#navbar:hover {
+    background-color: white;
+}
+
+#navbar:hover a {
+    color: black; /* Change the text color to black when hovering over navbar */
+}
+
+/* Hover effect for #navbar-right elements (select and icons) */
+#navbar:hover #navbar-right label,
+#navbar:hover #navbar-right select,
+#navbar:hover #search-icon,
+#navbar:hover #bag-icon {
+    color: black; /* Change the text color to black */
+    border-color: black; /* Change the border color to black for select */
+    cursor: pointer;
+}
+
+#navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+#navbar-right label {
+    color: white;
+    margin-right: 10px;
+}
+
+/* Style for the select element to match the <a> tag */
+#navbar-right select {
+    padding: 5px 10px;
+    background-color: transparent; /* Transparent background */
+    border: none;
+    color: white; /* Text color to match the navbar */
+    font-size: 0.9rem; /* Match the font size of the links */
+    font-family: Simply-ChocolateBold, sans-serif !important; /* Ensure consistent font */
+    font-weight: lighter;
+    transition: color 0.3s ease; /* Smooth transition */
+    text-decoration: none;
+}
+
+#navbar-right select:hover {
+    color: black; /* Change the text color on hover */
+}
+
+#search-icon {
+    font-size: 1.5rem;
+    margin-right: 25px;
+    cursor: pointer;
+    color: white; /* Ensure icons are white */
+}
+#bag-icon{
+    font-size: 1.5rem;
+    margin-right: 25px;
+    cursor: pointer;
+    color: white;
+
+}
+
+#body {
+    margin: 0;
+    padding: 0;
+    background-color:#e84e63;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: Makes the background fixed when scrolling */
+    height: 95vh;
+    width: 100%; /* Ensures full width */
+    color: white; /* Default text color */
+    padding-top: 120px; /* Adjust the body padding to account for the fixed header and navbar */
+}
+#simple{
+    position: absolute;
+    left: 55%;
+    top: 20%;
+    font-weight:900;
+    font-family: 'DEATHE MAACH NCV', sans-serif; /* Fallback to sans-serif if not available */
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+#crunch{
+    position: absolute;
+    left: 55%;
+    top: 25%;
+    margin-right: 18%;
+    font-weight:900;
+    font-family: 'DEATHE MAACH NCV', sans-serif; /* Fallback to sans-serif if not available */
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+#price{
+    position: absolute;
+    left: 55%;
+    top: 34%;
+    margin-right: 18%;
+    font-weight:900;
+    font-family: 'DEATHE MAACH NCV', sans-serif; /* Fallback to sans-serif if not available */
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: absolute;
+    top: 41%;
+    left: 55%;
+    margin-right: 20%;
+}
+
+.price-button {
+    background-color: #e84e63; /* Darker brown */
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-button:hover {
+    background-color: #e1213d ; /* Slightly lighter on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.price-button.selected {
+    background-color: #e1213d ; /* Highlighted orange */
+}
+#cart{
+    position: absolute;
+    top: 60%;
+    left: 55%;
+    width: 22%;
+    height: 5%;
+    background-color: transparent;
+    border-color: white;
+}
+#cart:hover{
+    cursor: pointer;
+    background-color:#e1213d ;
+    background-color: #e1213d ;
+    color: white;
+}
+#edge{
+    position: absolute;
+    top: 65%;
+    left: 55%;
+    font-family:'DEATHE MAACH NCV', sans-serif;
+}
+#edgepara{
+    position: absolute;
+    top: 69%;
+    left: 55%;
+    margin-right: 20%;
+    font-family:'DEATHE MAACH NCV', sans-serif;
+    font-size: small;
+}
+#bullect{
+    position: absolute;
+    top: 76%;
+    left: 53.5%;
+    font-family:'DEATHE MAACH NCV', sans-serif;
+    font-size: small;
+}
+#bullect li{
+    margin-bottom: 10px;
+}
+#g{
+    position: absolute;
+    top: 87%;
+    left: 55.5%; 
+    font-family:'DEATHE MAACH NCV', sans-serif;
+}
+.delivery-container {
+    position: absolute;
+    top: 92%;
+    left: 55%;
+    width: 24%;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+
+  .delivery-button {
+    width: 100%;
+    background-color: #e1213d ;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .delivery-button:hover {
+    background-color: #e1213d ;
+  }
+
+  .delivery-content {
+    background-color: #e1213d ;
+    color: white;
+    padding: 20px;
+    display: none;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .delivery-content.active {
+    display: block;
+  }
+  .delivery-content.show {
+    max-height: 500px; /* or any large value that fits the content */
+}
+
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .plus-minus {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  /* Smooth transition for content */
+  .delivery-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .delivery-content.active {
+    max-height: 500px;
+  }
+  .gallery-container {
+    width: 400%;
+  }
+
+  .thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    left: 18%;
+  }
+
+  .thumbnail {
+    width: 20px; /* Smaller size */
+    height: 40px; /* Smaller size */
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+
+  .thumbnail.active {
+    border-color: #ffffff;
+    width: 60px; /* Active thumbnail slightly larger */
+    height: 50px; /* Active thumbnail slightly larger */
+  }
+
+  .thumbnail:hover {
+    border-color: #e1213d ;
+  }
+
+  .main-image-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 20px;
+    width: 20%; /* Reduced width for main image container */
+    height: 40%;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+  }
+
+  .main-image {
+    max-width: 100%; /* Smaller main image */
+    max-height: 500%; /* Smaller height */
+    object-fit: contain;
+  }
+
+  /* For demo purposes - replace with actual images */
+  .placeholder {
+    background-color: #e1213d ;
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Modal Content */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Modal Content */
+  .modal {
+    background-color: white;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .modal-header .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .product-details {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .product-details img {
+    width: 80px;
+    height: auto;
+  }
+
+  .product-info {
+    flex-grow: 1;
+  }
+
+  .product-info h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+  }
+
+  .product-info p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+  }
+  #num{
+    color: black;
+  }
+
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .quantity-control button {
+    padding: 5px 10px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .recommendations {
+    margin-top: 20px;
+  }
+
+  .recommendations h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .recommendation-items {
+    display: flex;
+    gap: 15px;
+  }
+
+  .recommendation-item {
+    text-align: center;
+    width: 150px;
+  }
+
+  .recommendation-item img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .recommendation-item button {
+    padding: 5px 10px;
+    background-color: #e1213d ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .modal-footer button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .continue-btn {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+
+  #cart{
+    background-color: transparent;
+    color: white;
+  }
+  .go-to-cart-btn {
+    background-color:#e1213d ;
+    color: white;
+  }
+#head{
+    font-family:'DEATHE MAACH NCV', sans-serif;
+    position: absolute;
+    top: 125%;
+    left: 24%;
+    letter-spacing: -1px;
+}
+/* Styling for the delivery button */
+.delivery-button22 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    padding: 10px 15px;
+    background-color:#e1213d ;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 135%;
+    left: 24%;
+
+  }
+  
+  .delivery-button22:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Styling for the plus-minus icon */
+  .plus-minus22 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Styling for the hidden delivery content */
+  .delivery-content2 {
+    display: none;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.6;
+    position: absolute;
+    top: 139.5%;
+    left: 24%;
+    width: 48%;
+  }
+  
+  /* Animation for expanding content */
+  .delivery-content2.show {
+    display: block;
+  }
+  #head1{
+    font-family:'DEATHE MAACH NCV', sans-serif;
+    position: absolute;
+    top: 145%;
+    left: 24%;
+    letter-spacing: -1px;
+}
+.delivery-button222 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    padding: 10px 15px;
+    background-color:#e1213d ;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 135%;
+    left: 24%;
+
+  }
+  
+  .delivery-button222:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Styling for the plus-minus icon */
+  .plus-minus222 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Styling for the hidden delivery content */
+  .delivery-content22 {
+    display: none;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.6;
+    position: absolute;
+    top: 139.5%;
+    left: 24%;
+    width: 48%;
+  }
+  
+  /* Animation for expanding content */
+  .delivery-content22.show {
+    display: block;
+  }
+#may{
+    position: absolute;
+    top: 150%;
+    left: 40%;
+}
+.slideshow-container {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 165%;
+    left: 10%;
+}
+
+.slideshow {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;  /* Gap between each image box */
+    width: 300%;
+}
+
+.slide-box {
+    position: relative;
+    width: 900px;  /* Increased width */
+    height: 500px;  /* Increased height */
+    border: 2px solid #ddd;  /* Border around each box */
+    box-sizing: border-box;
+}
+
+.slide-link {
+    display: block;
+    text-decoration: none;  /* Remove underline from links */
+    position: relative;
+    height: 100%;  /* Ensure the link container takes up full height */
+}
+
+.slide {
+    width: 100%;
+    height: 100%;  /* Ensure the image fills the box height */
+    object-fit: cover;  /* Make sure the image covers the box */
+    cursor: pointer;  /* Makes it clear the image is clickable */
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);  /* Semi-transparent background */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.description h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.description p {
+    margin: 0;
+    font-size: 1rem;
+}
+.bottom-navbar {
+    border: 2px solid rgb(98, 80, 71);
+    background-color: #463126;
+    color: white;
+    font-size: 0.8925rem;
+    width: 500%;
+    position: absolute;
+    top: 250%;
+    height: 580px;
+}
+  
+  .bottom-navbar p {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    padding: 40px 60px; /* Add padding for clickable area */
+    border-radius: 4px; /* Rounded corners for hover effect */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    font-size: 190%;
+    font-weight: bolder;
+  }
+
+  .bottom_table th {
+    padding: 20px 80px; /* Adjust as needed for column spacing */
+    font-size: 150%;
+    font-weight: bolder;
+    text-align: left; /* Optional: Align text to the left */
+}
+
+.bottom_table tbody th {
+    font-size: 100%; /* Adjust font size for body rows */
+    font-weight: normal; /* Optional: Normal weight for body rows */
+    padding: 10px 90px; /* Adjust for body rows */
+    color: rgb(202, 190, 190);
+    text-decoration: none;
+}
+.bottom_table a{
+    color:rgb(202, 190, 190);
+    text-decoration: none;
+}
+
+#gov{
+    position:absolute;
+    top:450%;
+    left:6%;
+    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
+    letter-spacing: -1.5px;
+}
+#para4{
+    position:absolute;
+    top:470%;
+    left:6%;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+/* Dropdown Styling */
+/* Dropdown Styling */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: row; /* Arrange items in a row */
+  justify-content: space-around; /* Space out the items evenly */
+  padding: 1rem; /* Add padding for better spacing */
+  min-width: 100%; /* Ensure it stretches across the width */
+  z-index: 1000;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Add hover transition */
+}
+
+.dropdown img {
+  height: 250px; /* Increase image size */
+  width: 250px; /* Increase image size */
+  border-radius: 10px; /* Add rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown img:hover {
+  transform: scale(1.1); /* Enlarge image on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+/* Keep Dropdown Visible on Hover */
+.nav-item:hover .dropdown,
+.dropdown:hover {
+  display: flex;
+}
+#search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#search-container {
+  background: white;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#search-results {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-result-item:hover {
+  background-color: #f5f5f5;
+}
+
+.search-result-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.search-result-item .product-details {
+  flex-grow: 1;
+}
+
+.search-result-item .product-name {
+  font-weight: bold;
+}
+
+.search-result-item .product-description {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.search-result-item .product-price {
+  color: #4a4a4a;
+  font-weight: bold;
+}

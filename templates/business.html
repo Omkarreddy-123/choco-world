@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/business.css') }}">
+</head>
+<body>
+    <div id="header">
+        <p>January Deal: Free drinking bottle with all orders above 41€</p>
+    </div>
+    <div id="navbar">
+        <ul id="navbar-links">
+            <li class="nav-item">
+                <a href="{{ url_for('shop') }}">Shop</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('product2') }}">
+                        <img id="shopimage1" src="{{ url_for('static', filename='images/image1.png') }}" />
+                    </a>
+                    <a href="{{ url_for('product3') }}">
+                        <img id="shopimage2" src="{{ url_for('static', filename='images/image6.png') }}" />
+                    </a>
+                    <a href="{{ url_for('product4') }}">
+                        <img id="shopimage3" src="{{ url_for('static', filename='images/image11.png') }}" />
+                    </a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{{ url_for('news') }}">News</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('active1') }}"><img id="shopimage1" src="{{ url_for('static', filename='images/image44.png') }}"/></a>
+                    <a href="{{ url_for('active2') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image42.png') }}"/></a>
+                    <a href="{{ url_for('active3') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image43.png') }}"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('brand') }}">Brand</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('static', filename='templates/product2.html') }}"><img id="shopimage1" src="{{ url_for('static', filename='images/image1.png') }}"/></a>
+                    <a href="{{ url_for('static', filename='templates/product3.html') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image6.png') }}"/></a>
+                    <a href="{{ url_for('static', filename='templates/product4.html') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image11.png') }}"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('active') }}">Active</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('business') }}">Businesses</a>
+            </li>
+        </ul>
+            <div id="navbar-right">
+                <select id="dropdown" name="options">
+                    <option value="default" selected>INT</option>
+                    <option value="option1">DK</option>
+                    <option value="option2">DE</option>
+                    <option value="option3">INT</option>
+                </select>
+                <span id="search-icon">🔍</span>
+                <span id="bag-icon">🛒</span>
+            </div>
+    </div>
+    <div class="body"></div>
+    <div class="body1">
+        <h2 id="simple">Office must-haves</h2>
+        <h4 id="simple1">Bootcamps and events</h4>
+        <button id="simple2">Create company</button>
+        <button id="simple3" onclick="window.location.href='{{ url_for('login') }}'">Login</button>
+
+
+
+
+    </div>
+    <div id="about">
+        <h5>Danish premium chocolate</h5>
+        <h2>For the office, the meeting room, or promotional/company gift</h2>
+    </div>
+    <br><br><br><br><br><br><br><Br><br><br><br><br><br><br>
+        <table class="image_table">
+            <tr>
+                <td>
+                    <img src="{{ url_for('static', filename='images/tabel1.png') }}" alt="image1">
+                    <button class="description-button" onclick="window.location.href='{{ url_for('product1') }}'">
+                        <div class="description">
+                            <div id="fav1">Taste 3 of our favorites</div>
+                            <br>
+                            <div id="fav">Our Favorites 6-pack</div>
+                            <br>
+                            €14,95
+                        </div>
+                    </button>
+                </td>
+                
+                <td>
+                    <img src="{{ url_for('static', filename='images/tabel2.png') }}" alt="image2">
+                    <button class="description-button" onclick="window.location.href='{{ url_for('static', filename='templates/product2.html') }}'">
+                        <div class="description">
+                            <div id="fav1">Gift box with 27 Bites</div>
+                            <br>
+                            <div id="fav">Simply® Joyful</div>
+                            <br>
+                            €34,95
+                        </div>
+                    </button>
+                </td>
+                <td>
+                    <img src="{{ url_for('static', filename='images/tabel3.png') }}" alt="image3">
+                    <button class="description-button" onclick="window.location.href='{{ url_for('static', filename='templates/product3.html') }}'">
+                        <div class="description">
+                            <div id="fav1">Gift box with 18 Bites</div>
+                            <br>
+                            <div id="fav">Peace, Chocolate</div>
+                            <br>
+                            €23,85
+                        </div>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    <br><br>
+    <div id="form">
+        <h2>Create a Business Profile</h2>
+        <h6>Fill out the form below, and receive an email to complete your registration.</h6>
+        
+        <form action="/submit" method="POST">
+            <!-- Business Details -->
+            <input id="company" type="text" name="company_name" placeholder="Company Name" required />
+            <input id="contact" type="text" name="first_name" placeholder="Contact Person First Name" required />
+            <input id="contact2" type="text" name="last_name" placeholder="Contact Person Last Name" required />
+            <input id="vat" type="text" name="vat_number" placeholder="VAT Number" required />
+            <input id="email" type="email" name="email" placeholder="Enter Email Address" required />
+            <input id="text" type="text" name="onboard_code" placeholder="Onboard Code" required />
+            <input id="text2" type="email" name="invoice_email" placeholder="Invoice Email" required />
+        
+            <!-- Address Details -->
+            <h3>Company Shipping Address</h3>
+            <select id="country" name="country" required>
+                <option value="Austria" selected>Austria</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="England">England</option>
+            </select>
+            <input id="street" type="text" name="street" placeholder="Street and House Number" required />
+            <input id="address" type="text" name="additional_address" placeholder="Additional Address" />
+            <input id="postal" type="text" name="postal_code" placeholder="Postal Code" required />
+            <input id="city" type="text" name="city" placeholder="City" required />
+            <input id="phone" type="text" name="phone" placeholder="Phone Number" required />
+        
+            <!-- Preferences -->
+            <h3>Company Billing Address</h3>
+            <div class="checkbox-group">
+                <input type="checkbox" id="sameAddress" name="same_address" />
+                <label for="sameAddress">Same as shipping address</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="consent" name="consent" />
+                <label for="consent">I consent to receiving targeted communications via email with tips and offers</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="newsletter" name="subscribe" value="yes" required />
+                <label for="newsletter">I accept the terms for subscribing to the newsletter</label>
+            </div>
+        
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>        
+    <script>
+        document.getElementById("bag-icon").addEventListener("click", function() {
+        window.location.href = "{{ url_for('cart') }}";
+    });
+    document.getElementById('search-icon').addEventListener('click', function() {
+    // Create search overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'search-overlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    `;
+    
+    const searchContainer = document.createElement('div');
+    searchContainer.id = 'search-container';
+    searchContainer.style.cssText = `
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 600px;
+        max-height: 70%;
+        overflow-y: auto;
+    `;
+    
+    searchContainer.innerHTML = `
+        <input type="text" id="search-input" placeholder="Search products..." 
+               style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+        <div id="search-results" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;"></div>
+    `;
+    
+    overlay.appendChild(searchContainer);
+    document.body.appendChild(overlay);
+    
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    // Ensure products array is defined
+    const products = [
+        {
+            image: "{{ url_for('static', filename='images/1.png') }}",
+            name: "Simply® Crispy Carrie",
+            description: "Crunchy caramel, sea salt and premium milk chocolate",
+            price: "From €2,95",
+            link: "{{ url_for('product1') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image1.png') }}",
+            name: "Simply® Rich Arnold",
+            description: "Caramel, peanuts, and dark chocolate",
+            price: "From €3,50",
+            link: "{{ url_for('product2') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image6.png') }}",
+            name: "Simply® Persian Perry",
+            description: "Persian liquorice and premium white chocolate",
+            price: "From €3,25",
+            link: "{{ url_for('product3') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image11.png') }}",
+            name: "Simply® Speedy Tom",
+            description: "Acai, cocoa, passion fruit, and dark chocolate",
+            price: "From €7,25",
+            link: "{{ url_for('product4') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image16.png') }}",
+            name: "Simply® Dark Marci",
+            description: "Marzipan and a double layer of premium dark chocolate",
+            price: "From €8,25",
+            link: "{{ url_for('product5') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image21.png') }}",
+            name: "Simply® Mint Cindy",
+            description: "Mint,Matcha,Crisp and premium dark chocolate",
+            price: "From €5,25",
+            link: "{{ url_for('product6') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image26.png') }}",
+            name: "Simply® Salty Fred",
+            description: "Salted almonds and premium dark chocolate",
+            price: "From €2,25",
+            link: "{{ url_for('product7') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image31.png') }}",
+            name: "Simply® Grainy Billy",
+            description: "Coconut,cranberried and premium milk chocolate",
+            price: "From €4,25",
+            link: "{{ url_for('product8') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/bottle.png') }}",
+            name: "Bottle",
+            description: "You Can on a Bottled water, Can Do",
+            price: "From €4,25",
+            link: "{{ url_for('product9') }}"
+        }
+        
+    ];
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const matchedProducts = products.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) || 
+            product.description.toLowerCase().includes(searchTerm)
+        );
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+        
+        // Display matched products
+        if (matchedProducts.length === 0) {
+            searchResults.innerHTML = '<p style="width: 100%; text-align: center;">No products found</p>';
+        } else {
+            matchedProducts.forEach(product => {
+                const resultItem = document.createElement('div');
+                resultItem.style.cssText = `
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    padding: 10px;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: transform 0.2s;
+                `;
+                
+                resultItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" style="max-width: 100%; height: 200px; object-fit: cover; margin-bottom: 10px;">
+                    <h3 style="margin: 0 0 5px 0;">${product.name}</h3>
+                    <p style="margin: 0 0 5px 0; color: #666;">${product.description}</p>
+                    <p style="margin: 0; font-weight: bold;">${product.price}</p>
+                `;
+                
+                resultItem.addEventListener('mouseover', () => {
+                    resultItem.style.transform = 'scale(1.05)';
+                });
+                
+                resultItem.addEventListener('mouseout', () => {
+                    resultItem.style.transform = 'scale(1)';
+                });
+                
+                // Add click event to redirect
+                resultItem.addEventListener('click', () => {
+                    window.location.href = product.link;
+                });
+                
+                searchResults.appendChild(resultItem);
+            });
+        }
+    }
+    
+    // Add input event listener for real-time search
+    searchInput.addEventListener('input', performSearch);
+    
+    // Close overlay when clicking outside or pressing Escape
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            document.body.removeChild(overlay);
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (document.getElementById('search-overlay')) {
+                document.body.removeChild(overlay);
+            }
+        }
+    });
+    
+    // Focus on search input
+    searchInput.focus();
+});
+
+    </script>
+</body>
+</html>

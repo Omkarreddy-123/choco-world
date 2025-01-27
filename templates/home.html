@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
+    <script src="js\script.js"></script>
+</head>
+<body>
+    <div id="header">
+        <p>January Deal: Free drinking bottle with all orders above 41€</p>
+    </div>
+    <div id="navbar">
+        <ul id="navbar-links">
+            <li class="nav-item">
+                <a href="{{ url_for('profile') }}" id="profile-link">Profile</a>
+            </li>            
+            <li class="nav-item">
+                <a href="{{ url_for('shop') }}">Shop</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('product2') }}">
+                        <img id="shopimage1" src="{{ url_for('static', filename='images/image1.png') }}" />
+                    </a>
+                    <a href="{{ url_for('product3') }}">
+                        <img id="shopimage2" src="{{ url_for('static', filename='images/image6.png') }}" />
+                    </a>
+                    <a href="{{ url_for('product4') }}">
+                        <img id="shopimage3" src="{{ url_for('static', filename='images/image11.png') }}" />
+                    </a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{{ url_for('news') }}">News</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('active1') }}"><img id="shopimage1" src="{{ url_for('static', filename='images/image44.png') }}"/></a>
+                    <a href="{{ url_for('active2') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image42.png') }}"/></a>
+                    <a href="{{ url_for('active3') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image43.png') }}"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('brand') }}">Brand</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('static', filename='templates/product2.html') }}"><img id="shopimage1" src="{{ url_for('static', filename='images/image1.png') }}"/></a>
+                    <a href="{{ url_for('static', filename='templates/product3.html') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image6.png') }}"/></a>
+                    <a href="{{ url_for('static', filename='templates/product4.html') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image11.png') }}"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('active') }}">Active</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('business') }}">Businesses</a>
+            </li>
+        </ul>
+            <div id="navbar-right">
+                <select id="dropdown" name="options">
+                    <option value="default" selected>INT</option>
+                    <option value="option1">DK</option>
+                    <option value="option2">DE</option>
+                    <option value="option3">INT</option>
+                </select>
+                <span id="search-icon">🔍</span>
+                <span id="bag-icon">🛒</span>
+            </div>
+    </div>
+    <div id="body">
+        <h1 id="text">Premium Chocolate</h1>
+        <p id="para">Made in Copenhagen with the best natural ingredients</p>
+        <button id="Chocolatebar" onclick="window.location.href='{{ url_for('shopchocolatebar') }}'">Shop Chocolate bars</button>
+
+
+    </div>
+    <div id="chocolate-space">
+        <button onclick="window.location.href='{{ url_for('shopchocolatebar') }}'"><img id="image1" src="{{ url_for('static', filename='/images/PeaceChocolateHarmony_sq_duocombo_wBites_1000.png') }}"/></button>
+        <button onclick="window.location.href='{{ url_for('shopchocolatebar') }}'"><img id="image2" src="{{ url_for('static', filename='/images/crispy1.png') }}"/></button>
+        <button onclick="window.location.href='{{ url_for('shopchocolatebar') }}'"><img id="image3" src="{{ url_for('static', filename='/images/Untitled-100.png') }}"/></button>
+        <button onclick="window.location.href='{{ url_for('shopchocolatebar') }}'"><img id="image4" src="{{ url_for('static', filename='/images/bite_0ca53bac-605c-4b31-91b4-ddbf956c7e43.png') }}"/></button>
+        <button onclick="window.location.href='{{ url_for('shopchocolatebar') }}'"><img id="image5" src="{{ url_for('static', filename='/images/Premium50_6_m.skygge_1000x1000_8e507f06-1031-429e-9d7f-4a43becb68bd.png') }}"/></button>
+        <button onclick="window.location.href='{{ url_for('shopchocolatebar') }}'"><img id="image6" src="{{ url_for('static', filename='/images/Favorites_sq_cube_dancing_wIngredients_1000.png') }}"/></button>
+    </div>
+    <div id="labels_chocolates">
+        <h5 id="News">News</h5>
+        <h5 id="chocolate_bars">Chocolate bars</h5>
+        <h5 id="protein">Protein bars</h5>
+        <h5 id="bites">Bites</h5>
+        <h5 id="gift">Gift boxes</h5>
+        <h5 id="cubes">Cubes</h5>
+    </div>
+    <div id="readmore">
+        <h3 id="read">It's all natural</h3>
+        <p id="para1">At Simply®, we only use natural ingredients, steering clear of synthetic powders and artificial additives. We're a bit picky when it comes to our ingredients.
+             We only use the best nature has to offer – taste and quality mean everything to us. Always. We spend a lot of time searching for new and exciting flavors, and we're willing to go to great lengths for new innovative opportunities,
+             but we never compromise on good taste. This is our love for natural chocolate.</p>
+        <a id="readmorehere" href="#">Read more here</a>
+    </div>
+
+    <div id="city">
+        <h3 id="ex">Explore the Simply® family</h3>
+        <img id="collection" src="{{ url_for('static', filename='images/Design_uden_navn_7_32ed1b2c-85aa-401e-8f7b-251472ad2ced.png') }}"/>
+        <div class="slider-wrapper">
+            <div id="collection2-container">
+                <img id="collection2" class="image-slide" src="{{ url_for('static', filename='images/Design_uden_navn_7_32ed1b2c-85aa-401e-8f7b-251472ad2ced.png') }}" />
+            </div>
+            <p id="para2">Crunchy caramel, sea salt and premium milk chocolate</p>
+            <h5 id="text1">Simply® Crispy Carrie
+            <p id="euro2">From €2,95</p></h5>
+            <button id="viewproducts">View Products</button>
+            <a id="arrow">🡆</a>
+            <a id="arrow2">🡄</a>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            {
+                image: "{{ url_for('static', filename='images/1.png') }}",
+                description: "Crunchy caramel, sea salt and premium milk chocolate",
+                name: "Simply® Crispy Carrie",
+                price: "From €2,95",
+                link: "{{ url_for('product1') }}"
+            },
+            {
+                image: "{{ url_for('static', filename='images/image1.png') }}",
+                description: "Caramel, peanuts, and dark chocolate",
+                name: "Simply® Rich Arnold protein bar",
+                price: "From €3,50",
+                link: "{{ url_for('product2') }}"
+            },
+            {
+                image: "{{ url_for('static', filename='images/image6.png') }}",
+                description: "Persian liquorice and premium white chocolate",
+                name: "Simply® Persian Perry",
+                price: "From €3,25",
+                link: "{{ url_for('product3') }}"
+            },
+            {
+                image: "{{ url_for('static', filename='images/image11.png') }}",
+                description: "Acai, cocoa, passion fruit, and dark chocolate",
+                name: "Simply® Speedy Tom protein bar",
+                price: "From €7,25",
+                link: "{{ url_for('product4') }}"
+            },
+            {
+                image: "{{ url_for('static', filename='images/image16.png') }}",
+                description: "Marzipan and a double layer of premium dark chocolate",
+                name: "Simply® Dark Marci",
+                price: "From €15,25",
+                link: "{{ url_for('product5') }}"
+            },
+            {
+                image: "{{ url_for('static', filename='images/image21.png') }}",
+                description: "Mint, matcha tea, crisp, and premium dark chocolate.",
+                name: "Simply® Minty Cindy",
+                price: "From €2,95",
+                link: "{{ url_for('product6') }}"
+            },
+            {
+                image: "{{ url_for('static', filename='images/image26.png') }}",
+                description: "Salted almonds and premium dark chocolate",
+                name: "Simply® Salty Fred",
+                price: "From €2,25",
+                link: "{{ url_for('product7') }}"
+            },
+            {
+                image: "{{ url_for('static', filename='images/image31.png') }}",
+                description: "Coconut, cranberry and premium milk chocolate",
+                name: "Simply® Grainy Billy",
+                price: "From €2,95",
+                link: "{{ url_for('product8') }}"
+            },
+        ];
+        let currentImageIndex = 0;
+
+        const imageElement = document.getElementById("collection2");
+        const descriptionElement = document.getElementById("para2");
+        const nameElement = document.getElementById("text1");
+        const priceElement = document.getElementById("euro2");
+        const viewProductsButton = document.getElementById("viewproducts");
+
+        function updateSlider() {
+            const product = products[currentImageIndex];
+            imageElement.src = product.image;
+            descriptionElement.textContent = product.description;
+            nameElement.textContent = product.name;
+            priceElement.textContent = product.price;
+            viewProductsButton.textContent = "View Products";
+            viewProductsButton.onclick = () => {
+                window.location.href = product.link;
+            };
+        }
+
+        document.getElementById("arrow").addEventListener("click", function () {
+            currentImageIndex = (currentImageIndex + 1) % products.length;
+            updateSlider();
+        });
+
+        document.getElementById("arrow2").addEventListener("click", function () {
+            currentImageIndex = (currentImageIndex - 1 + products.length) % products.length;
+            updateSlider();
+        });
+
+        // Initialize the slider with the first product
+        updateSlider();
+        function openNewPage() {
+            window.location.href = "cart.html"; // Specify the path to your new HTML page
+        }
+        document.getElementById("bag-icon").addEventListener("click", function() {
+    window.location.href = "cart.html";
+});
+document.getElementById('search-icon').addEventListener('click', function() {
+    // Create search overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'search-overlay';
+    
+    const searchContainer = document.createElement('div');
+    searchContainer.id = 'search-container';
+    
+    searchContainer.innerHTML = `
+        <input type="text" id="search-input" placeholder="Search products...">
+        <div id="search-results"></div>
+    `;
+    
+    overlay.appendChild(searchContainer);
+    document.body.appendChild(overlay);
+    
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const matchedProducts = products.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) || 
+            product.description.toLowerCase().includes(searchTerm)
+        );
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+        
+        // Display matched products
+        matchedProducts.forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('search-result-item');
+            resultItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <div class="product-details">
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-description">${product.description}</div>
+                    <div class="product-price">${product.price}</div>
+                </div>
+            `;
+            
+            // Add click event to redirect
+            resultItem.addEventListener('click', () => {
+                window.location.href = product.link;
+            });
+            
+            searchResults.appendChild(resultItem);
+        });
+    });
+    
+    // Close overlay when clicking outside
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            document.body.removeChild(overlay);
+        }
+    });
+    
+    // Focus on search input
+    searchInput.focus();
+});
+document.getElementById('bag-icon').addEventListener('click', function() {
+    window.location.href = "/cart";  // Redirect to the Flask route for cart
+});
+document.addEventListener('DOMContentLoaded', function() {
+        if (window.location.pathname === '/profile') {
+            // Hide other elements
+            document.getElementById('header').style.display = 'none';
+            document.getElementById('navbar').style.display = 'none';
+            document.getElementById('body').style.display = 'none';
+            document.getElementById('chocolate-space').style.display = 'none';
+            document.getElementById('labels_chocolates').style.display = 'none';
+            document.getElementById('readmore').style.display = 'none';
+            document.getElementById('city').style.display = 'none';
+        }
+    });
+    </script>
+    </div>
+    <section class="hero-section">
+        <div class="content-wrapper">
+            <h1>Premium protein bars</h1>
+            <p>Filled with natural ingredients, 25% protein, and no artificial sweeteners.</p>
+            <a href="{{ url_for('shop') }}" class="cta-button">Order now</a>
+        </div>
+    </section>
+
+    <div id="inspire">
+        <h2>Inspiration for chocolate gifts</h2>
+        <div class="image-row">
+            <div class="image-item">
+                <a href="{{ url_for('product8') }}"><img src="{{ url_for('static', filename='images/image31.png') }}" alt="Image 1"></a>
+                <p>Exclusive gift box with 50 pcs. Coconut, cranberry and premium milk chocolate</p>
+            </div>
+            <div class="image-item">
+                <a href="{{ url_for('product7') }}"><img src="{{ url_for('static', filename='images/image26.png') }}" alt="Image 2"></a>
+                <p>Exclusive gift box with 40 pcs. Salted almonds and premium dark chocolate</p>
+            </div>
+            <div class="image-item">
+                <a href="{{ url_for('product6') }}"><img src="{{ url_for('static', filename='images/image21.png') }}" alt="Image 3"></a>
+                <p>Exclusive gift box with 80 pcs.Mint, matcha tea, crisp, and premium dark chocolate.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="text0">
+        <h2 id="gov">Simply® - Official gourmet chocolate webshop</h2>
+        <p id="para4">At Simply®, we create responsible and fair gourmet chocolate of exclusive quality using only the finest natural ingredients. Nothing else. We offer a luxurious selection of gift boxes and chocolate assortments for any special occasion, whether it's holidays like Christmas and Easter or just a sweet treat on the dullest of Mondays.
+            <br><br>
+            We also have a tempting range of premium chocolate bars for you to enjoy all to yourself. Whether you prefer filled chocolates with crunch and caramel or solid chocolate with sea salt and nuts, you'll undoubtedly find more than one variant in the shop that will make your mouth water. Mix and match your favorite chocolate bars and chocolate squares individually, or delve into exciting flavor explosions with our bar kits and assorted boxes of delectable mini chocolates in bites, where you can sink your teeth into all our exclusive flavor varieties with dark, milk, or white chocolate. Created with honest and genuine quality ingredients by Danish chocolatiers.
+            <br><br>
+            
+            Give your workout a boost with our selection of delicious protein bars with chocolate, completely free of artificial additives. Gain superpowers after training with a natural protein bar from Simply® made from pure quality ingredients that actually taste good. Here in the webshop, you'll also find our complete range of protein bars gathered in a hard-hitting bar kit.
+            <br><br>
+            The chocolate from Simply® has both attitude and character, and you can be sure that it's produced with respect for both people and our planet. Treat yourself to our limited editions, where you'll find the unique among our temptations in glittering paper, visiting our regular assortment here and there. Our beautifully packaged chocolates are a true color spectacle, and the packaging speaks its clear language because the boxes from Simply® contain something truly extraordinary.
+            <br><br>
+            We always stock the complete range of our premium chocolate here in the official Simply® webshop so you can shop exactly the chocolate that suits your taste. Experience our entire sweet universe right here in the chocolate shop that's always open, and try to resist the temptation to shop one of each online. You can also write a personal message on one of our postcards and send the chocolate to someone you care about. You know well that there's always an occasion for exceptionally good chocolate.</p>
+    </div>
+
+    <div class="bottom-navbar">
+        <table class="bottom_table">
+            <thead>
+                <tr>
+                    <th>Say hi!</th>
+                    <th>For Businesses</th>
+                    <th>Info</th>
+                    <TH>About Simply®</TH>
+                    <th>Shop</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="head22">
+                    <th><a href="#">digital@simplychocolate.dk</a></th>
+                    <th><a href="#">Log in</a></th>
+                    <th><a href="#">Search</a></th>
+                    <th><a href="#">About Us</a></th>
+                    <th><a href="#">Chocolate bars</a></th>
+                </tr>
+                <tr id="head22">
+                    <th>Simply® </th>
+                    <th><a href="#">Create a b2b profile</a></th>
+                    <th><a href="#">Shipping and delivery</a></th>
+                    <th><a href="#">All natural</a></th>
+                    <th><a href="#">Protein bars</a></th>
+                </tr>
+                <tr>
+                    <th>Amager Landevej 123</th>
+                    <th><a href="#">Chocolate for the office</a></th>
+                    <th><a href="#">Privacy policy</a></th>
+                    <th><a href="#"Sustainability</a></th>
+                    <th><a href="#">Bites</a></th>
+                </tr>
+                <tr>
+                    <th>2770 Kastrup</th>
+                    <th><a href="#">Profile</a></th>
+                    <th><A href="#">Inspection report</A></th>
+                    <th><a href="#">Responsibility</a></th>
+                    <th><a href="#">Gift ideas</a></th>
+                </tr>
+                <tr>
+                    <th>CVR. nr. 32761844</th>
+                    <th></th>
+                    <th ><a href="#">Cookies</a></th>
+                    <th><a href="#">Our team</a></th>
+                    <th><a href="#">Active</a></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th><a href="#">Frequently asked questions</a></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th><a href="#">Contact</a></th>
+                    <th></th>
+                </tr>
+                <tr>
+                <th></th>
+                <th></th>
+                <th><a href="#">Subscription policy</a></th>
+                <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>See my subscription</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Job</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Impressum</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

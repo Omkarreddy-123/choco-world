@@ -1,0 +1,102 @@
+* {
+    background-color: #efeded;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#body {
+    border: 2px solid gray;  /* Gray border for the box */
+    width: 35%;              /* Width of the box */
+    position: absolute;      /* Absolute positioning */
+    top: 20%;                /* Positioning from the top */
+    left: 31%;               /* Positioning from the left */
+    padding: 20px;           /* Adds padding inside the box */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional: Adds a subtle shadow for depth */
+    border-radius: 8px;      /* Optional: Rounds the corners */
+    height: 50%;
+}
+
+#heading {
+    text-align: center;
+    font-size: 350%;
+    background-color: transparent;
+    letter-spacing: -2px;
+    font-family: Simply-ChocolateBold, sans-serif !important;
+    margin-bottom: 10px;
+}
+
+#log, #para {
+    background-color: transparent;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#email {
+    background-color: transparent;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: bolder;
+    color: black;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: row; /* Arrange items in a row */
+    justify-content: space-around; /* Space out the items evenly */
+    padding: 1rem; /* Add padding for better spacing */
+    min-width: 100%; /* Ensure it stretches across the width */
+    z-index: 1000;
+  }
+  
+  .dropdown a {
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add hover transition */
+  }
+  
+  .dropdown img {
+    height: 250px; /* Increase image size */
+    width: 250px; /* Increase image size */
+    border-radius: 10px; /* Add rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .dropdown img:hover {
+    transform: scale(1.1); /* Enlarge image on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+  }
+  
+  /* Keep Dropdown Visible on Hover */
+  .nav-item:hover .dropdown,
+  .dropdown:hover {
+    display: flex;
+  }
+  
+button {
+    background-color: #463126;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

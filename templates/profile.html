@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Simply Chocolate</title>
+    <link rel="stylesheet" href="../static/style/profile.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>My Profile</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="profile-grid">
+            <!-- Sidebar -->
+            <div class="profile-sidebar">
+                <div class="profile-image-container">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" alt="Profile" class="profile-image" id="profileImage">
+                    <button class="image-upload-btn" id="uploadImageBtn">
+                        <i class='bx bx-camera'></i>
+                    </button>
+                    <input type="file" id="imageInput" hidden accept="image/*">
+                </div>
+
+                <div class="profile-name">
+                    <h2 id="userName">John Doe</h2>
+                    <button class="edit-name-btn" id="editNameBtn">
+                        <i class='bx bx-edit-alt'></i> Edit Profile
+                    </button>
+                </div>
+
+                <nav class="profile-nav">
+                    <button class="nav-button active" data-tab="profile">
+                        <i class='bx bx-user'></i> Profile
+                    </button>
+                    <button class="nav-button" data-tab="orders">
+                        <i class='bx bx-shopping-bag'></i> Orders
+                    </button>
+                    <button class="nav-button" data-tab="addresses">
+                        <i class='bx bx-map'></i> Addresses
+                    </button>
+                    <button class="nav-button" data-tab="wallet">
+                        <i class='bx bx-wallet'></i> Wallet
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content-area">
+                <!-- Profile Tab -->
+                <div class="tab-content active" id="profileTab">
+                    <h3>Profile Information</h3>
+                    <form id="profileForm" class="form-group">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" value="john.doe@example.com" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-control" value="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Shipping Address</label>
+                            <textarea id="address" class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- Orders Tab -->
+                <div class="tab-content" id="ordersTab">
+                    <h3>Order History</h3>
+                    <div id="ordersList">
+                        <!-- Orders will be dynamically loaded here -->
+                    </div>
+                </div>
+
+                <!-- Addresses Tab -->
+                <div class="tab-content" id="addressesTab">
+                    <h3>My Addresses</h3>
+                    <div id="savedAddress">
+                        <!-- Address will be loaded here -->
+                    </div>
+                    <div class="form-group">
+                        <label for="newAddress">Add New Address</label>
+                        <textarea id="newAddress" class="form-control" rows="3"></textarea>
+                        <button onclick="saveNewAddress()" class="btn btn-primary" style="margin-top: 10px;">Save Address</button>
+                    </div>
+                </div>
+
+                <!-- Wallet Tab -->
+                <div class="tab-content" id="walletTab">
+                    <h3>My Wallet</h3>
+                    <div class="wallet-balance" id="totalSpent"></div>
+                    <h4>Order History</h4>
+                    <div id="transactionsList">
+                        <!-- Transactions will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab Switching
+        const navButtons = document.querySelectorAll('.nav-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+                
+                // Update active states
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(tab => tab.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(`${tabId}Tab`).classList.add('active');
+
+                // Load content based on tab
+                if (tabId === 'orders') {
+                    loadOrders();
+                } else if (tabId === 'wallet') {
+                    loadWallet();
+                } else if (tabId === 'addresses') {
+                    loadAddress();
+                }
+            });
+        });
+
+        // Profile Image Upload
+        const uploadImageBtn = document.getElementById('uploadImageBtn');
+        const imageInput = document.getElementById('imageInput');
+        const profileImage = document.getElementById('profileImage');
+
+        uploadImageBtn.addEventListener('click', () => {
+            imageInput.click();
+        });
+
+        imageInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    profileImage.src = e.target.result;
+                    localStorage.setItem('profileImage', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Load saved profile image
+        const savedImage = localStorage.getItem('profileImage');
+        if (savedImage) {
+            profileImage.src = savedImage;
+        }
+
+        // Edit Profile Name
+        const editNameBtn = document.getElementById('editNameBtn');
+        const userName = document.getElementById('userName');
+        let isEditing = false;
+
+        editNameBtn.addEventListener('click', () => {
+            if (!isEditing) {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = userName.textContent;
+                input.className = 'form-control';
+                input.style.textAlign = 'center';
+                
+                userName.replaceWith(input);
+                input.focus();
+                
+                input.addEventListener('blur', () => {
+                    const newName = input.value.trim();
+                    if (newName) {
+                        userName.textContent = newName;
+                        localStorage.setItem('userName', newName);
+                    }
+                    input.replaceWith(userName);
+                    isEditing = false;
+                });
+                
+                isEditing = true;
+            }
+        });
+
+        // Load saved username
+        const savedUsername = localStorage.getItem('userName');
+        if (savedUsername) {
+            userName.textContent = savedUsername;
+        }
+
+        // Load Orders
+        function loadOrders() {
+            fetch('/get_orders')
+                .then(response => response.json())
+                .then(orders => {
+                    const ordersList = document.getElementById('ordersList');
+                    if (orders.length === 0) {
+                        ordersList.innerHTML = '<p>No orders found.</p>';
+                        return;
+                    }
+
+                    let ordersHTML = '';
+                    orders.forEach(order => {
+                        let itemsHTML = '';
+                        order.cart.forEach(item => {
+                            itemsHTML += `
+                                <div class="order-item">    
+                                    <span>${item.name} (${item.modalQuantity} x ${item.packageQuantity}pcs)</span>
+                                    <span>€${item.totalPrice}</span>
+                                </div>
+                            `;
+                        });
+
+                        ordersHTML += `
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <h4>Order #${order.id}</h4>
+                                    <span>${new Date(order.date).toLocaleDateString()}</span>
+                                </div>
+                                <div class="order-items">
+                                    ${itemsHTML}
+                                </div>
+                                <div class="order-footer">
+                                    <p class="order-total">Total: €${order.totalPrice}</p>
+                                    <p class="order-address">Shipping to: ${order.shippingAddress}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    ordersList.innerHTML = ordersHTML;
+                })
+                .catch(error => {
+                    console.error('Error loading orders:', error);
+                    document.getElementById('ordersList').innerHTML = '<p>Error loading orders.</p>';
+                });
+        }
+
+        // Load Wallet
+        function loadWallet() {
+            fetch('/get_orders')
+                .then(response => response.json())
+                .then(orders => {
+                    const totalSpent = orders.reduce((sum, order) => sum + parseFloat(order.totalPrice), 0);
+                    document.getElementById('totalSpent').innerHTML = `Total Spent: €${totalSpent.toFixed(2)}`;
+
+                    const transactionsList = document.getElementById('transactionsList');
+                    if (orders.length === 0) {
+                        transactionsList.innerHTML = '<p>No transactions found.</p>';
+                        return;
+                    }
+
+                    let transactionsHTML = '';
+                    orders.forEach(order => {
+                        transactionsHTML += `
+                            <div class="transaction">
+                                <div>
+                                    <strong>Order #${order.id}</strong>
+                                    <p>${new Date(order.date).toLocaleDateString()}</p>
+                                </div>
+                                <div class="amount">-€${order.totalPrice}</div>
+                            </div>
+                        `;
+                    });
+
+                    transactionsList.innerHTML = transactionsHTML;
+                })
+                .catch(error => {
+                    console.error('Error loading wallet:', error);
+                    document.getElementById('transactionsList').innerHTML = '<p>Error loading transactions.</p>';
+                });
+        }
+
+        // Address Management
+        function loadAddress() {
+            const savedAddress = localStorage.getItem('shippingAddress');
+            const addressDiv = document.getElementById('savedAddress');
+            
+            if (savedAddress) {
+                addressDiv.innerHTML = `
+                    <div class="address-card">
+                        <div>
+                            <h4>Shipping Address</h4>
+                            <p>${savedAddress}</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="editAddress()">Edit</button>
+                    </div>
+                `;
+            } else {
+                addressDiv.innerHTML = `
+                    <div class="address-card">
+                        <p>No address saved.</p>
+                        <button class="btn btn-primary" onclick="editAddress()">Add Address</button>
+                    </div>
+                `;
+            }
+        }
+
+        function saveNewAddress() {
+            const newAddress = document.getElementById('newAddress').value.trim();
+            if (newAddress) {
+                localStorage.setItem('shippingAddress', newAddress);
+                loadAddress();
+            }
+        }
+
+        function editAddress() {
+            const newAddress = prompt("Enter your new shipping address:");
+            if (newAddress) {
+                localStorage.setItem('shippingAddress', newAddress);
+                loadAddress();
+            }
+        }
+    </script>
+</body>
+</html>

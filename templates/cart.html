@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Simply Chocolate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-button {
+            padding: 8px 16px;
+            background-color: #6e6153;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-button:hover {
+            background-color: #574d42;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-price {
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .quantity-controls button {
+            padding: 5px 10px;
+            background-color: #6e6153;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .quantity-controls button:hover {
+            background-color: #574d42;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 200px;
+            padding: 15px;
+            background-color: #6e6153;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 20px 0 0 auto;
+        }
+
+        .checkout-button:hover {
+            background-color: #574d42;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .continue-shopping {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #6e6153;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Shopping Cart</h1>
+            <div class="header-right">
+                <a href="/profile" class="profile-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    My Profile
+                </a>
+            </div>
+        </div>
+        <div id="cartContent">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            displayCart();
+        });
+
+        function displayCart() {
+            const cartContent = document.getElementById('cartContent');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log(cart);
+
+            if (cart.length === 0) {
+                cartContent.innerHTML = `
+                    <div class="empty-cart">
+                        <h2>Your cart is empty</h2>
+                        <p>Looks like you haven't added any items yet.</p>
+                        <a href="/shop" class="continue-shopping" id="continueShopping">Continue Shopping</a>
+                    </div>
+                `;
+                setContinueShoppingLink();
+                return;
+            }
+
+            let cartHTML = '<div class="cart-items">';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = parseFloat(item.totalPrice);
+                total += itemTotal;
+
+                cartHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="item-image">
+                        <div class="item-details">
+                            <h3>${item.name}</h3>
+                            <p>${item.description}</p>
+                            <p>Package: ${item.packageQuantity} pcs</p>
+                            <div class="quantity-controls">
+                                <button onclick="updateQuantity(${index}, -1)">-</button>
+                                <span>${item.modalQuantity}</span>
+                                <button onclick="updateQuantity(${index}, 1)">+</button>
+                                <button onclick="removeItem(${index})">Remove</button>
+                            </div>
+                        </div>
+                        <div class="item-price">€${item.totalPrice}</div>
+                    </div>
+                `;
+            });
+
+            cartHTML += `
+                </div>
+                <div class="cart-summary">
+                    <div class="cart-total">Total: €${total.toFixed(2)}</div>
+                    <a href="#" class="checkout-button" onclick="proceedToCheckout()">Proceed to Checkout</a>
+                </div>
+            `;
+
+            cartContent.innerHTML = cartHTML;
+        }
+
+        function setContinueShoppingLink() {
+            const continueShoppingButton = document.getElementById('continueShopping');
+            const referrer = document.referrer;
+
+            if (referrer.includes('product4')) {
+                continueShoppingButton.href = 'product4';
+            } else if (referrer.includes('product8')) {
+                continueShoppingButton.href = 'product8';
+            } else if (referrer.includes('product2')) {
+                continueShoppingButton.href = 'product2';
+            } else if (referrer.includes('product1')) {
+                continueShoppingButton.href = 'product1';
+            } else if (referrer.includes('product3')) {
+                continueShoppingButton.href = 'product3';
+            } else if (referrer.includes('product8')) {
+                continueShoppingButton.href = 'product8';
+            } else if (referrer.includes('product5')) {
+                continueShoppingButton.href = 'product5';
+            } else if (referrer.includes('product6')) {
+                continueShoppingButton.href = 'product6';
+            } else if (referrer.includes('product7')) {
+                continueShoppingButton.href = 'product7';
+            } else if (referrer.includes('product9')) {
+                continueShoppingButton.href = 'product9';
+            } 
+        }
+
+        function updateQuantity(index, change) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart[index];
+
+            const newQuantity = item.modalQuantity + change;
+            if (newQuantity >= 1 && newQuantity <= 30) {
+                item.modalQuantity = newQuantity;
+                item.totalQuantity = item.packageQuantity * newQuantity;
+                item.totalPrice = (item.pricePerPackage * newQuantity).toFixed(2);
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCart();
+            }
+        }
+
+        function removeItem(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
+
+        function proceedToCheckout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const shippingAddress = localStorage.getItem('shippingAddress') || '';
+
+            if (!shippingAddress) {
+                const goToProfile = confirm('No address saved. Would you like to add your address in your profile?');
+                if (goToProfile) {
+                    window.location.href = '/profile';
+                }
+                return;
+            }
+
+            const confirmAddress = confirm(`Shipping Address: ${shippingAddress}\n\nIs this the correct address for delivery?`);
+
+            if (confirmAddress) {
+                const totalPrice = cart.reduce((sum, item) => sum + parseFloat(item.totalPrice), 0);
+
+                fetch('/save_order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        cart: cart,
+                        totalPrice: totalPrice,
+                        shippingAddress: shippingAddress
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.message || 'Order save failed');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    localStorage.removeItem('cart');
+                    window.location.href = '/thank-you';
+                })
+                .catch(error => {
+                    console.error('Error saving order:', error);
+                    alert(`Failed to save order: ${error.message}`);
+                });
+            } else {
+                const goToProfile = confirm('Would you like to update your address in your profile?');
+                if (goToProfile) {
+                    window.location.href = '/profile';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Add horizontal overflow hidden */
+    position: relative; /* Add relative positioning to contain absolute elements */
+}
+
+#header {
+    border: 2px solid rgb(98, 80, 71);
+    background-color: #463126;
+    color: white;
+    font-size: 0.8925rem;
+    width: 100%;
+    position: flex;    
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1000; 
+}
+
+#navbar {
+    position:absolute; /* Use fixed positioning to align with the header */
+    top: 50px; /* Set the navbar directly below the header (height of the header) */
+    width: 100%;
+    z-index: 1000; 
+    height: 70px;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Distribute items across the navbar */
+    align-items: center; /* Vertically center the items */
+    padding: 0 90px; /* Add padding for spacing */
+    transition: background-color 0.3s ease;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1; /* Allow navbar items to take up available space */
+}
+
+#navbar li {
+    margin: 0 20px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-family: Simply-ChocolateBold, sans-serif !important; /* Ensure the font is applied */
+    font-weight: 900;
+    transition: color 0.3s ease;
+}
+
+#navbar a:hover {
+    color: black;
+}
+
+#navbar:hover {
+    background-color: white;
+}
+
+#navbar:hover a {
+    color: black; /* Change the text color to black when hovering over navbar */
+}
+
+/* Hover effect for #navbar-right elements (select and icons) */
+#navbar:hover #navbar-right label,
+#navbar:hover #navbar-right select,
+#navbar:hover #search-icon,
+#navbar:hover #bag-icon {
+    color: black; /* Change the text color to black */
+    border-color: black; /* Change the border color to black for select */
+    cursor: pointer;
+}
+
+#navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+#navbar-right label {
+    color: white;
+    margin-right: 10px;
+}
+
+/* Style for the select element to match the <a> tag */
+#navbar-right select {
+    padding: 5px 10px;
+    background-color: transparent; /* Transparent background */
+    border: none;
+    color: white; /* Text color to match the navbar */
+    font-size: 0.9rem; /* Match the font size of the links */
+    font-family: Simply-ChocolateBold, sans-serif !important; /* Ensure consistent font */
+    font-weight: lighter;
+    transition: color 0.3s ease; /* Smooth transition */
+    text-decoration: none;
+}
+
+#navbar-right select:hover {
+    color: black; /* Change the text color on hover */
+}
+
+#search-icon {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    cursor: pointer;
+    color: white; /* Ensure icons are white */
+}
+#bag-icon{
+    font-size: 1.5rem;
+    margin-right: 95px;
+    cursor: pointer;
+    color: white;
+
+}
+#body {
+    margin: 0;
+    padding: 0;
+    background-image: url('..\\images\\kaffee-meister-XhWntGj2N98-unsplash.jpg');
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: Makes the background fixed when scrolling */
+    height:25%;
+    width: 100%; /* Ensures full width */
+    color: white; /* Default text color */
+    padding-top: 120px; /* Adjust the body padding to account for the fixed header and navbar */
+}
+
+#com{
+    text-align: center;
+    font-size: xx-large;
+    letter-spacing: -1.5px;
+    color:#FFFFFF;
+    font-family:'Oswald', sans-serif;
+}
+#line{
+    position: absolute;
+    top: 56%;
+}
+#head5{
+    text-align: center;
+    font-size: large;
+    color: rgb(119, 111, 111);
+    font-family:'Oswald', sans-serif;
+}
+
+
+.image_table {
+    width: 90%;
+    margin: 0 auto; 
+    border-collapse:separate; 
+    border-spacing: 20px;
+  }
+  
+ 
+  .image_table td {
+    border: 2px; /* Add a border around each cell */
+    padding: 10px; /* Add padding inside the cell */
+    background-color: #eae9e9; /* Add a light background color */
+    text-align: center; 
+    height: 400px; 
+    vertical-align: middle; 
+  }
+ 
+  .image_table img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+  }
+  .description-button {
+    display: block;
+    width: 60%; /* Makes the button span the container */
+    padding: 10px;
+    margin: 10px auto; /* Centers the box horizontally */
+    background-color: #f9f9f9; /* Light background color */
+    border: 2px solid rgb(201, 191, 191); /* Button border */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text inside */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow */
+    font-family: 'Oswald', sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    color: #333; /* Text color */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+.description-button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+.description {
+    display: inline-block; /* Ensures text inside is treated as a block */
+}
+
+#fav1 {
+    font-weight: bold; /* Make the first line bold */
+}
+
+#fav {
+    color: #555; /* Lighter color for the second line */
+}
+
+
+
+#fav1{
+    color: #534f4f;
+    font-family:'Oswald', sans-serif;
+}
+#fav{
+    font-family:'Oswald', sans-serif;
+    font-weight: 900;
+    font-size: larger;
+}
+.prices {
+    display: flex;
+    gap: 20px; /* Add space between the numbers */
+    align-items: center; /* Aligns the numbers vertically */
+}
+
+#strick {
+    text-decoration: line-through;
+    color: red; /* Optional */
+}
+
+#normal {
+    font-weight: bold;
+    color: green; /* Optional */
+}
+.bottom-navbar {
+    border: 2px solid rgb(98, 80, 71);
+    background-color: #463126;
+    color: white;
+    font-size: 0.8925rem;
+    width: 500%;
+    position: absolute;
+    top: 340%;
+    height: 580px;
+}
+  
+  .bottom-navbar p {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    padding: 40px 60px; /* Add padding for clickable area */
+    border-radius: 4px; /* Rounded corners for hover effect */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    font-size: 190%;
+    font-weight: bolder;
+  }
+
+  .bottom_table th {
+    padding: 20px 80px; /* Adjust as needed for column spacing */
+    font-size: 150%;
+    font-weight: bolder;
+    text-align: left; /* Optional: Align text to the left */
+}
+
+.bottom_table tbody th {
+    font-size: 100%; /* Adjust font size for body rows */
+    font-weight: normal; /* Optional: Normal weight for body rows */
+    padding: 10px 90px; /* Adjust for body rows */
+    color: rgb(202, 190, 190);
+    text-decoration: none;
+}
+.bottom_table a{
+    color:rgb(202, 190, 190);
+    text-decoration: none;
+}
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: row; /* Arrange items in a row */
+    justify-content: space-around; /* Space out the items evenly */
+    padding: 1rem; /* Add padding for better spacing */
+    min-width: 100%; /* Ensure it stretches across the width */
+    z-index: 1000;
+  }
+  
+  .dropdown a {
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add hover transition */
+  }
+  
+  .dropdown img {
+    height: 250px; /* Increase image size */
+    width: 250px; /* Increase image size */
+    border-radius: 10px; /* Add rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .dropdown img:hover {
+    transform: scale(1.1); /* Enlarge image on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+  }
+  
+  /* Keep Dropdown Visible on Hover */
+  .nav-item:hover .dropdown,
+  .dropdown:hover {
+    display: flex;
+  }
+  #search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  #search-container {
+    background: white;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  #search-results {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-result-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .search-result-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+  
+  .search-result-item .product-details {
+    flex-grow: 1;
+  }
+  
+  .search-result-item .product-name {
+    font-weight: bold;
+  }
+  
+  .search-result-item .product-description {
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  .search-result-item .product-price {
+    color: #4a4a4a;
+    font-weight: bold;
+  }

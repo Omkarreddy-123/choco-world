@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/News.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <div id="header">
+        <p>January Deal: Free drinking bottle with all orders above 41€</p>
+    </div>
+    <div id="navbar">
+        <ul id="navbar-links">
+            <li class="nav-item">
+                <a href="{{ url_for('shop') }}">Shop</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('product2') }}">
+                        <img id="shopimage1" src="{{ url_for('static', filename='images/image1.png') }}" />
+                    </a>
+                    <a href="{{ url_for('product3') }}">
+                        <img id="shopimage2" src="{{ url_for('static', filename='images/image6.png') }}" />
+                    </a>
+                    <a href="{{ url_for('product4') }}">
+                        <img id="shopimage3" src="{{ url_for('static', filename='images/image11.png') }}" />
+                    </a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{{ url_for('news') }}">News</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('active1') }}"><img id="shopimage1" src="{{ url_for('static', filename='images/image44.png') }}"/></a>
+                    <a href="{{ url_for('active2') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image42.png') }}"/></a>
+                    <a href="{{ url_for('active3') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image43.png') }}"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('brand') }}">Brand</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('static', filename='templates/product2.html') }}"><img id="shopimage1" src="{{ url_for('static', filename='images/image1.png') }}"/></a>
+                    <a href="{{ url_for('static', filename='templates/product3.html') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image6.png') }}"/></a>
+                    <a href="{{ url_for('static', filename='templates/product4.html') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image11.png') }}"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('active') }}">Active</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('business') }}">Businesses</a>
+            </li>
+        </ul>
+        <div id="navbar-right">
+            <select id="dropdown" name="options">
+                <option value="default" selected>INT</option>
+                <option value="option1">DK</option>
+                <option value="option2">DE</option>
+                <option value="option3">INT</option>
+            </select>
+            <span id="search-icon">🔍</span>
+            <span id="bag-icon">🛒</span>
+        </div>
+    </div>
+
+    <div class="body">
+    <div class="body1">
+        <h4 id="news">NEWS</h4>
+    </div>
+    <br><br><br>
+    <h5 id="head5">5 products</h5>
+    <hr id="line" style="border: 1px solid rgb(240, 236, 236); width: 100%;">
+    <table class="image_table">
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='images/image11.png') }} " alt="image1">
+                <button class="description-button" onclick="openNewPage4()">
+                    <div class="description">
+                        <div id="fav1">Acai, cocoa, passion fruit, and dark chocolate</div>
+                        <br>
+                        <div id="fav">Simply® Speedy Tom protein bar</div>
+                        <br>
+                        From €7,25
+                    </div>
+                </button>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='images/image16.png') }}" alt="image2">
+                <button class="description-button" onclick="openNewPage5()">
+                    <div class="description">
+                        <div id="fav1">Taste 9 of our favorites</div>
+                        <br>
+                        <div id="fav">Simply® Dark Marci</div>
+                        <br>
+                        From €15,25
+                    </div>
+                </button>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='images/image21.png') }}" alt="image3">
+                <button class="description-button" onclick="openNewPage6()">
+                    <div class="description">
+                        <div id="fav1">Taste 3 of our favorites</div>
+                        <br>
+                        <div id="fav">Simply® Minty Cindy</div>
+                        <br>
+                        From €2,95
+                    </div>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='images/image26.png') }}" alt="image4">
+                <button class="description-button" onclick="openNewPage7()">
+                    <div class="description">
+                        <div id="fav1">Taste 3 of our favorites</div>
+                        <br>
+                        <div id="fav">Simply® Salty Fred</div>
+                        <br>
+                        From €2,25
+                    </div>
+                </button>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='images/image31.png') }}" alt="image5">
+                <button class="description-button" onclick="openNewPage8()">
+                    <div class="description">
+                        <div id="fav1">Taste 3 of our favorites</div>
+                        <br>
+                        <div id="fav">Simply® Grainy Billy</div>
+                        <br>
+                        From €2,95
+                    </div>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-navbar">
+        <table class="bottom_table">
+            <thead>
+                <tr>
+                    <th>Say hi!</th>
+                    <th>For Businesses</th>
+                    <th>Info</th>
+                    <TH>About Simply®</TH>
+                    <th>Shop</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="head22">
+                    <th><a href="#">digital@simplychocolate.dk</a></th>
+                    <th><a href="#">Log in</a></th>
+                    <th><a href="#">Search</a></th>
+                    <th><a href="#">About Us</a></th>
+                    <th><a href="#">Chocolate bars</a></th>
+                </tr>
+                <tr id="head22">
+                    <th>Simply® </th>
+                    <th><a href="#">Create a b2b profile</a></th>
+                    <th><a href="#">Shipping and delivery</a></th>
+                    <th><a href="#">All natural</a></th>
+                    <th><a href="#">Protein bars</a></th>
+                </tr>
+                <tr>
+                    <th>Amager Landevej 123</th>
+                    <th><a href="#">Chocolate for the office</a></th>
+                    <th><a href="#">Privacy policy</a></th>
+                    <th><a href="#"Sustainability</a></th>
+                    <th><a href="#">Bites</a></th>
+                </tr>
+                <tr>
+                    <th>2770 Kastrup</th>
+                    <th><A href="#">My profile</A></th>
+                    <th><A href="#">Inspection report</A></th>
+                    <th><a href="#">Responsibility</a></th>
+                    <th><a href="#">Gift ideas</a></th>
+                </tr>
+                <tr>
+                    <th>CVR. nr. 32761844</th>
+                    <th></th>
+                    <th ><a href="#">Cookies</a></th>
+                    <th><a href="#">Our team</a></th>
+                    <th><a href="#">Active</a></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th><a href="#">Frequently asked questions</a></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th><a href="#">Contact</a></th>
+                    <th></th>
+                </tr>
+                <tr>
+                <th></th>
+                <th></th>
+                <th><a href="#">Subscription policy</a></th>
+                <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>See my subscription</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Job</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Impressum</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function openNewPage8() {
+            window.location.href = "product3.html"; // Specify the path to your new HTML page
+        }
+        function openNewPage4() {
+            window.location.href = "product4.html"; // Specify the path to your new HTML page
+        }
+        function openNewPage5() {
+            window.location.href = "product5.html"; // Specify the path to your new HTML page
+        }
+        function openNewPage6() {
+            window.location.href = "product6.html"; // Specify the path to your new HTML page
+        }
+        function openNewPage7() {
+            window.location.href = "product7.html"; // Specify the path to your new HTML page
+        }
+        document.getElementById("bag-icon").addEventListener("click", function() {
+        window.location.href = "{{ url_for('cart') }}";
+    });
+    document.getElementById('search-icon').addEventListener('click', function() {
+    // Create search overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'search-overlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    `;
+    
+    const searchContainer = document.createElement('div');
+    searchContainer.id = 'search-container';
+    searchContainer.style.cssText = `
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 600px;
+        max-height: 70%;
+        overflow-y: auto;
+    `;
+    
+    searchContainer.innerHTML = `
+        <input type="text" id="search-input" placeholder="Search products..." 
+               style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+        <div id="search-results" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;"></div>
+    `;
+    
+    overlay.appendChild(searchContainer);
+    document.body.appendChild(overlay);
+    
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    // Ensure products array is defined
+    const products = [
+        {
+            image: "{{ url_for('static', filename='images/1.png') }}",
+            name: "Simply® Crispy Carrie",
+            description: "Crunchy caramel, sea salt and premium milk chocolate",
+            price: "From €2,95",
+            link: "{{ url_for('product1') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image1.png') }}",
+            name: "Simply® Rich Arnold",
+            description: "Caramel, peanuts, and dark chocolate",
+            price: "From €3,50",
+            link: "{{ url_for('product2') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image6.png') }}",
+            name: "Simply® Persian Perry",
+            description: "Persian liquorice and premium white chocolate",
+            price: "From €3,25",
+            link: "{{ url_for('product3') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image11.png') }}",
+            name: "Simply® Speedy Tom",
+            description: "Acai, cocoa, passion fruit, and dark chocolate",
+            price: "From €7,25",
+            link: "{{ url_for('product4') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image16.png') }}",
+            name: "Simply® Dark Marci",
+            description: "Marzipan and a double layer of premium dark chocolate",
+            price: "From €8,25",
+            link: "{{ url_for('product5') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image21.png') }}",
+            name: "Simply® Mint Cindy",
+            description: "Mint,Matcha,Crisp and premium dark chocolate",
+            price: "From €5,25",
+            link: "{{ url_for('product6') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image26.png') }}",
+            name: "Simply® Salty Fred",
+            description: "Salted almonds and premium dark chocolate",
+            price: "From €2,25",
+            link: "{{ url_for('product7') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image31.png') }}",
+            name: "Simply® Grainy Billy",
+            description: "Coconut,cranberried and premium milk chocolate",
+            price: "From €4,25",
+            link: "{{ url_for('product8') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/bottle.png') }}",
+            name: "Bottle",
+            description: "You Can on a Bottled water, Can Do",
+            price: "From €4,25",
+            link: "{{ url_for('product9') }}"
+        }
+        
+    ];
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const matchedProducts = products.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) || 
+            product.description.toLowerCase().includes(searchTerm)
+        );
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+        
+        // Display matched products
+        if (matchedProducts.length === 0) {
+            searchResults.innerHTML = '<p style="width: 100%; text-align: center;">No products found</p>';
+        } else {
+            matchedProducts.forEach(product => {
+                const resultItem = document.createElement('div');
+                resultItem.style.cssText = `
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    padding: 10px;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: transform 0.2s;
+                `;
+                
+                resultItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" style="max-width: 100%; height: 200px; object-fit: cover; margin-bottom: 10px;">
+                    <h3 style="margin: 0 0 5px 0;">${product.name}</h3>
+                    <p style="margin: 0 0 5px 0; color: #666;">${product.description}</p>
+                    <p style="margin: 0; font-weight: bold;">${product.price}</p>
+                `;
+                
+                resultItem.addEventListener('mouseover', () => {
+                    resultItem.style.transform = 'scale(1.05)';
+                });
+                
+                resultItem.addEventListener('mouseout', () => {
+                    resultItem.style.transform = 'scale(1)';
+                });
+                
+                // Add click event to redirect
+                resultItem.addEventListener('click', () => {
+                    window.location.href = product.link;
+                });
+                
+                searchResults.appendChild(resultItem);
+            });
+        }
+    }
+    
+    // Add input event listener for real-time search
+    searchInput.addEventListener('input', performSearch);
+    
+    // Close overlay when clicking outside or pressing Escape
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            document.body.removeChild(overlay);
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (document.getElementById('search-overlay')) {
+                document.body.removeChild(overlay);
+            }
+        }
+    });
+    
+    // Focus on search input
+    searchInput.focus();
+});
+
+</script>
+</body>
+</html>

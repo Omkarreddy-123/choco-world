@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/Brand.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <div id="header">
+        <p>January Deal: Free drinking bottle with all orders above 41€</p>
+    </div>
+    <div id="navbar">
+        <ul id="navbar-links">
+            <li class="nav-item">
+                <a href="{{ url_for('shop') }}">Shop</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('product2') }}">
+                        <img id="shopimage1" src="{{ url_for('static', filename='images/image1.png') }}" />
+                    </a>
+                    <a href="{{ url_for('product3') }}">
+                        <img id="shopimage2" src="{{ url_for('static', filename='images/image6.png') }}" />
+                    </a>
+                    <a href="{{ url_for('product4') }}">
+                        <img id="shopimage3" src="{{ url_for('static', filename='images/image11.png') }}" />
+                    </a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{{ url_for('news') }}">News</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('active1') }}"><img id="shopimage1" src="{{ url_for('static', filename='images/image44.png') }}"/></a>
+                    <a href="{{ url_for('active2') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image42.png') }}"/></a>
+                    <a href="{{ url_for('active3') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image43.png') }}"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('brand') }}">Brand</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('static', filename='templates/product2.html') }}"><img id="shopimage1" src="{{ url_for('static', filename='images/image1.png') }}"/></a>
+                    <a href="{{ url_for('static', filename='templates/product3.html') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image6.png') }}"/></a>
+                    <a href="{{ url_for('static', filename='templates/product4.html') }}"><img id="shopimage2" src="{{ url_for('static', filename='images/image11.png') }}"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('active') }}">Active</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('business') }}">Businesses</a>
+            </li>
+        </ul>
+        <div id="navbar-right">
+            <select id="dropdown" name="options">
+                <option value="default" selected>INT</option>
+                <option value="option1">DK</option>
+                <option value="option2">DE</option>
+                <option value="option3">INT</option>
+            </select>
+            <span id="search-icon">🔍</span>
+            <span id="bag-icon">🛒</span>
+        </div>
+    </div>
+
+    <!-- Main Body Section -->
+    <div class="body"></div>
+
+    <!-- About Us Section -->
+    <div id="aboutus">
+        <h4>About us</h4>
+        <h2>Danish produced chocolate</h2>
+        <p id="p1">
+            Since 2011, we have produced award-winning quality chocolates with the best natural ingredients at our factory in the beautiful city of Copenhagen. From the harvest of the cocoa bean in the Ivory Coast - to the finished chocolate bar on the shelves, nature is our most important ally. 
+            We believe that the best taste experiences occur when everything needless is cut away. That is why we avoid artificial additives. And it is exactly the natural, the simple, and the authentic values that have inspired us to our philosophy 'Keep it Simply'. A view of life based on a simple premise that happiness often occurs in the uncomplicated things. 
+            Whether it's enjoying a good piece of chocolate, taking a break from the digital world, or admiring a magical moment.
+        </p>
+    </div>
+
+    <!-- Same Same But Different Section -->
+    <div id="same1">
+        <div id="same">
+            <img id="firstimage" src=" {{ url_for('static', filename='images/Det_nye_Simply_-_FB_kvadrat.png') }}" alt="First Image" />
+            <img id="secondimage" src=" {{ url_for('static', filename='images/1500x1500_web_10.png') }}" alt="Second Image" />
+        </div>
+        <div id="textsame">
+            <h2>Same Same but different</h2>
+            <p>
+                If you've been part of our chocolate family for many years, you'll quickly notice that something isn't quite as usual. Simply® Chocolate has become Simply. New name. New logo. New design. But the same unconditional love for natural chocolate, as always.
+                <br><br>
+                Our new brand identity is a reflection and embracement of our philosophy 'Keep it Simply’. A reminder to make room for the simple, important moments that really matter. An approach to life that is expressed in everything we do. From the development of our chocolate recipes and the design of our packaging - to our daily life at the factory and not least our commitment to sustainability.
+            </p>
+        </div>
+        <div id="cart">
+            <h5>Treat your loved ones with chocolate gift</h5>
+            <h3 id="gift1">Gift Cubes and Boxes</h3>
+        </div>
+        
+        <!-- Gift Items Section -->
+        <table class="image_table">
+            <tr>
+                <td>
+                    <img src=" {{ url_for('static', filename='images/1.png') }}" alt="image1">
+                    <button class="description-button" onclick="openNewPage()">
+                        <div class="description">
+                            <div id="fav1">Taste 3 of our favorites</div>
+                            <br>
+                            <div id="fav">Our Favorites 6-pack</div>
+                            <br>
+                            €14,95
+                        </div>
+                    </button>
+                </td>
+                <td>
+                    <img src="{{ url_for('static', filename='images/image1.png ') }}" alt="image2">
+                    <button class="description-button" onclick="openNewPage1()">
+                        <div class="description">
+                            <div id="fav1">Gift box with 27 Bites</div>
+                            <br>
+                            <div id="fav">Simply® Joyful</div>
+                            <br>
+                            €34,95
+                        </div>
+                    </button>
+                </td>
+                <td>
+                    <img src="{{ url_for('static', filename='images/image6.png ') }}" alt="image3">
+                    <button class="description-button" onclick="openNewPage2()">
+                        <div class="description">
+                            <div id="fav1">Gift box with 18 Bites</div>
+                            <br>
+                            <div id="fav">Peace, Chocolate</div>
+                            <br>
+                            €23,85
+                        </div>
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Footer Section -->
+        <div class="bottom-navbar">
+            <table class="bottom_table">
+                <thead>
+                    <tr>
+                        <th>Say hi!</th>
+                        <th>For Businesses</th>
+                        <th>Info</th>
+                        <TH>About Simply®</TH>
+                        <th>Shop</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="head22">
+                        <th><a href="#">digital@simplychocolate.dk</a></th>
+                        <th><a href="#">Log in</a></th>
+                        <th><a href="#">Search</a></th>
+                        <th><a href="#">About Us</a></th>
+                        <th><a href="#">Chocolate bars</a></th>
+                    </tr>
+                    <tr id="head22">
+                        <th>Simply® </th>
+                        <th><a href="#">Create a b2b profile</a></th>
+                        <th><a href="#">Shipping and delivery</a></th>
+                        <th><a href="#">All natural</a></th>
+                        <th><a href="#">Protein bars</a></th>
+                    </tr>
+                    <tr>
+                        <th>Amager Landevej 123</th>
+                        <th><a href="#">Chocolate for the office</a></th>
+                        <th><a href="#">Privacy policy</a></th>
+                        <th><a href="#">Sustainability</a></th>
+                        <th><a href="#">Bites</a></th>
+                    </tr>
+                    <tr>
+                        <th>2770 Kastrup</th>
+                        <th><A href="#">My profile</A></th>
+                        <th><A href="#">Inspection report</A></th>
+                        <th><a href="#">Responsibility</a></th>
+                        <th><a href="#">Gift ideas</a></th>
+                    </tr>
+                    <tr>
+                        <th>CVR. nr. 32761844</th>
+                        <th></th>
+                        <th ><a href="#">Cookies</a></th>
+                        <th><a href="#">Our team</a></th>
+                        <th><a href="#">Active</a></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th><a href="#">Frequently asked questions</a></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th><a href="#">Contact</a></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                    <th></th>
+                    <th></th>
+                    <th><a href="#">Subscription policy</a></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>See my subscription</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Job</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Impressum</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function openNewPage() {
+            window.location.href = "{{ url_for('product1') }}"; // Specify the path to your new HTML page
+        }
+        function openNewPage1() {
+            window.location.href = "{{ url_for('product2') }}"; // Specify the path to your new HTML page
+        }
+        function openNewPage2() {
+            window.location.href = "{{ url_for('product3') }}"; // Specify the path to your new HTML page
+        }
+        document.getElementById("bag-icon").addEventListener("click", function() {
+        window.location.href = "{{ url_for('cart') }}";
+    });
+    document.getElementById('search-icon').addEventListener('click', function() {
+    // Create search overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'search-overlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    `;
+    
+    const searchContainer = document.createElement('div');
+    searchContainer.id = 'search-container';
+    searchContainer.style.cssText = `
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 600px;
+        max-height: 70%;
+        overflow-y: auto;
+    `;
+    
+    searchContainer.innerHTML = `
+        <input type="text" id="search-input" placeholder="Search products..." 
+               style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+        <div id="search-results" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;"></div>
+    `;
+    
+    overlay.appendChild(searchContainer);
+    document.body.appendChild(overlay);
+    
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    // Ensure products array is defined
+    const products = [
+        {
+            image: "{{ url_for('static', filename='images/1.png') }}",
+            name: "Simply® Crispy Carrie",
+            description: "Crunchy caramel, sea salt and premium milk chocolate",
+            price: "From €2,95",
+            link: "{{ url_for('product1') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image1.png') }}",
+            name: "Simply® Rich Arnold",
+            description: "Caramel, peanuts, and dark chocolate",
+            price: "From €3,50",
+            link: "{{ url_for('product2') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image6.png') }}",
+            name: "Simply® Persian Perry",
+            description: "Persian liquorice and premium white chocolate",
+            price: "From €3,25",
+            link: "{{ url_for('product3') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image11.png') }}",
+            name: "Simply® Speedy Tom",
+            description: "Acai, cocoa, passion fruit, and dark chocolate",
+            price: "From €7,25",
+            link: "{{ url_for('product4') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image16.png') }}",
+            name: "Simply® Dark Marci",
+            description: "Marzipan and a double layer of premium dark chocolate",
+            price: "From €8,25",
+            link: "{{ url_for('product5') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image21.png') }}",
+            name: "Simply® Mint Cindy",
+            description: "Mint,Matcha,Crisp and premium dark chocolate",
+            price: "From €5,25",
+            link: "{{ url_for('product6') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image26.png') }}",
+            name: "Simply® Salty Fred",
+            description: "Salted almonds and premium dark chocolate",
+            price: "From €2,25",
+            link: "{{ url_for('product7') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/image31.png') }}",
+            name: "Simply® Grainy Billy",
+            description: "Coconut,cranberried and premium milk chocolate",
+            price: "From €4,25",
+            link: "{{ url_for('product8') }}"
+        },
+        {
+            image: "{{ url_for('static', filename='images/bottle.png') }}",
+            name: "Bottle",
+            description: "You Can on a Bottled water, Can Do",
+            price: "From €4,25",
+            link: "{{ url_for('product9') }}"
+        }
+        
+    ];
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const matchedProducts = products.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) || 
+            product.description.toLowerCase().includes(searchTerm)
+        );
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+        
+        // Display matched products
+        if (matchedProducts.length === 0) {
+            searchResults.innerHTML = '<p style="width: 100%; text-align: center;">No products found</p>';
+        } else {
+            matchedProducts.forEach(product => {
+                const resultItem = document.createElement('div');
+                resultItem.style.cssText = `
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    padding: 10px;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: transform 0.2s;
+                `;
+                
+                resultItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" style="max-width: 100%; height: 200px; object-fit: cover; margin-bottom: 10px;">
+                    <h3 style="margin: 0 0 5px 0;">${product.name}</h3>
+                    <p style="margin: 0 0 5px 0; color: #666;">${product.description}</p>
+                    <p style="margin: 0; font-weight: bold;">${product.price}</p>
+                `;
+                
+                resultItem.addEventListener('mouseover', () => {
+                    resultItem.style.transform = 'scale(1.05)';
+                });
+                
+                resultItem.addEventListener('mouseout', () => {
+                    resultItem.style.transform = 'scale(1)';
+                });
+                
+                // Add click event to redirect
+                resultItem.addEventListener('click', () => {
+                    window.location.href = product.link;
+                });
+                
+                searchResults.appendChild(resultItem);
+            });
+        }
+    }
+    
+    // Add input event listener for real-time search
+    searchInput.addEventListener('input', performSearch);
+    
+    // Close overlay when clicking outside or pressing Escape
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            document.body.removeChild(overlay);
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (document.getElementById('search-overlay')) {
+                document.body.removeChild(overlay);
+            }
+        }
+    });
+    
+    // Focus on search input
+    searchInput.focus();
+});
+
+    </script>
+</body>
+</html>
