@@ -269,75 +269,76 @@
           </div>                  
     </div>
     <div id="another">
-        <h3 id="may">Maybe you like these</h3>
-        <div class="slideshow-container">
-            <div class="slideshow" id="slideshow">
-                <div class="slide-box">
-                    <a href="link1.html" class="slide-link">
-                        <img src="{{ url_for('static', filename='images/tabel6.png') }}" alt="Image 1" class="slide">
-                        <div class="description">
-                            <h3>Simply® Cookie Joe</h3>
-                            <p>$10.00</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="slide-box">
-                    <a href="link2.html" class="slide-link">
-                        <img src="{{ url_for('static', filename='images/tabel5.png') }}" alt="Image 2" class="slide">
-                        <div class="description">
-                            <h3>Simply® Crispy Carrie - 75 Bites</h3>
-                            <p>$20.00</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="slide-box">
-                    <a href="link3.html" class="slide-link">
-                        <img src="{{ url_for('static', filename='images/tabel9.png') }}" alt="Image 3" class="slide">
-                        <div class="description">
-                            <h3>Simply® Persian Perry</h3>
-                            <p>$30.00</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="slide-box">
-                    <a href="link4.html" class="slide-link">
-                        <img src="{{ url_for('static', filename='images/tabel8.png') }}" alt="Image 4" class="slide">
-                        <div class="description">
-                            <h3>Simply® Crispy Carrie - Cube with bites</h3>
-                            <p>$40.00</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="slide-box">
-                    <a href="link5.html" class="slide-link">
-                        <img src="{{ url_for('static', filename='images/tabel7.png') }}" alt="Image 5" class="slide">
-                        <div class="description">
-                            <h3>Simply® Grainy Sue</h3>
-                            <p>$50.00</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="slide-box">
-                    <a href="link6.html" class="slide-link">
-                        <img src="{{ url_for('static', filename='images/tabel3.png') }}" alt="Image 6" class="slide">
-                        <div class="description">
-                            <h3>Our Favorites 6-pack</h3>
-                            <p>$60.00</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="slide-box">
-                    <a href="link7.html" class="slide-link">
-                        <img src="{{ url_for('static', filename='images/tabel.png') }}" alt="Image 7" class="slide">
-                        <div class="description">
-                            <h3>Simply® Minty Cindy</h3>
-                            <p>$70.00</p>
-                        </div>
-                    </a>
-                </div>
+    <h3 id="may">Maybe you like these</h3>
+    <div class="slideshow-container">
+        <div class="slideshow" id="slideshow">
+            <div class="slide-box">
+                <a href="{{ url_for('product3') }}" class="slide-link">
+                    <img src="{{ url_for('static', filename='images/image6.png') }}" alt="Image 1" class="slide">
+                    <div class="description">
+                        <h3>Simply® Persian Perry</h3>
+                        <p>€3,25</p>
+                    </div>
+                </a>
+            </div>
+            <div class="slide-box">
+                <a href="{{ url_for('product1') }}" class="slide-link">
+                    <img src="{{ url_for('static', filename='images/image5.png') }}" alt="Image 2" class="slide">
+                    <div class="description">
+                        <h3>Simply® Crispy Carrie - 75 Bites</h3>
+                        <p>€20.00</p>
+                    </div>
+                </a>
+            </div>
+            <div class="slide-box">
+                <a href="{{ url_for('product4') }}" class="slide-link">
+                    <img src="{{ url_for('static', filename='images/image15.png') }}" alt="Image 3" class="slide">
+                    <div class="description">
+                        <h3>Simply® Speedy Tom</h3>
+                        <p>€7,25</p>
+                    </div>
+                </a>
+            </div>
+            <div class="slide-box">
+                <a href="{{ url_for('product2') }}" class="slide-link">
+                    <img src="{{ url_for('static', filename='images/image20.png') }}" alt="Image 4" class="slide">
+                    <div class="description">
+                        <h3>Simply® Rich Arnold</h3>
+                        <p>€3,50</p>
+                    </div>
+                </a>
+            </div>
+            <div class="slide-box">
+                <a href="{{ url_for('product8') }}" class="slide-link">
+                    <img src="{{ url_for('static', filename='images/image30.png') }}" alt="Image 5" class="slide">
+                    <div class="description">
+                        <h3>Simply® Grainy Billy</h3>
+                        <p>€4,25</p>
+                    </div>
+                </a>
+            </div>
+            <div class="slide-box">
+                <a href="{{ url_for('product5') }}" class="slide-link">
+                    <img src="{{ url_for('static', filename='images/image35.png') }}" alt="Image 6" class="slide">
+                    <div class="description">
+                        <h3>Simply® Dark Marci</h3>
+                        <p>€8,25</p>
+                    </div>
+                </a>
+            </div>
+            <div class="slide-box">
+                <a href="{{ url_for('product6') }}" class="slide-link">
+                    <img src="{{ url_for('static', filename='images/tabel8.png') }}" alt="Image 7" class="slide">
+                    <div class="description">
+                        <h3>Simply® Minty Cindy</h3>
+                        <p>€5,25</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
+</div>
+
     <div class="bottom-navbar">
         <table class="bottom_table">
             <thead>

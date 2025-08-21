@@ -114,14 +114,12 @@
             button.addEventListener('click', () => {
                 const tabId = button.dataset.tab;
                 
-                // Update active states
                 navButtons.forEach(btn => btn.classList.remove('active'));
                 tabContents.forEach(tab => tab.classList.remove('active'));
                 
                 button.classList.add('active');
                 document.getElementById(`${tabId}Tab`).classList.add('active');
 
-                // Load content based on tab
                 if (tabId === 'orders') {
                     loadOrders();
                 } else if (tabId === 'wallet') {
@@ -153,7 +151,6 @@
             }
         });
 
-        // Load saved profile image
         const savedImage = localStorage.getItem('profileImage');
         if (savedImage) {
             profileImage.src = savedImage;
@@ -189,7 +186,6 @@
             }
         });
 
-        // Load saved username
         const savedUsername = localStorage.getItem('userName');
         if (savedUsername) {
             userName.textContent = savedUsername;
@@ -303,11 +299,21 @@
             }
         }
 
+        // Save New Address
         function saveNewAddress() {
             const newAddress = document.getElementById('newAddress').value.trim();
             if (newAddress) {
                 localStorage.setItem('shippingAddress', newAddress);
+
+                // Sync with Profile Tab textarea
+                const profileAddress = document.getElementById('address');
+                if (profileAddress) {
+                    profileAddress.value = newAddress;
+                }
+
                 loadAddress();
+                document.getElementById('newAddress').value = "";
+                alert("Address saved successfully!");
             }
         }
 
@@ -315,9 +321,19 @@
             const newAddress = prompt("Enter your new shipping address:");
             if (newAddress) {
                 localStorage.setItem('shippingAddress', newAddress);
+                document.getElementById('address').value = newAddress; // Sync with profile
                 loadAddress();
             }
         }
+
+        // Load saved data on page load
+        window.addEventListener("DOMContentLoaded", () => {
+            const savedAddress = localStorage.getItem('shippingAddress');
+            if (savedAddress) {
+                document.getElementById('address').value = savedAddress;
+                loadAddress();
+            }
+        });
     </script>
 </body>
 </html>

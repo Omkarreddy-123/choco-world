@@ -74,7 +74,8 @@
         <tr>
             <td>
                 <img src="{{ url_for('static', filename='images/image11.png') }} " alt="image1">
-                <button class="description-button" onclick="openNewPage4()">
+                <a href="{{ url_for('product4') }}">
+                <button class="description-button">
                     <div class="description">
                         <div id="fav1">Acai, cocoa, passion fruit, and dark chocolate</div>
                         <br>
@@ -83,10 +84,12 @@
                         From €7,25
                     </div>
                 </button>
+                </a>
             </td>
             <td>
                 <img src="{{ url_for('static', filename='images/image16.png') }}" alt="image2">
-                <button class="description-button" onclick="openNewPage5()">
+                <a href="{{ url_for('product5') }}">
+                <button class="description-button">
                     <div class="description">
                         <div id="fav1">Taste 9 of our favorites</div>
                         <br>
@@ -95,10 +98,12 @@
                         From €15,25
                     </div>
                 </button>
+                </a>
             </td>
             <td>
                 <img src="{{ url_for('static', filename='images/image21.png') }}" alt="image3">
-                <button class="description-button" onclick="openNewPage6()">
+                <a href="{{ url_for('product6') }}">
+                <button class="description-button">
                     <div class="description">
                         <div id="fav1">Taste 3 of our favorites</div>
                         <br>
@@ -107,12 +112,14 @@
                         From €2,95
                     </div>
                 </button>
+                </a>
             </td>
         </tr>
         <tr>
             <td>
                 <img src="{{ url_for('static', filename='images/image26.png') }}" alt="image4">
-                <button class="description-button" onclick="openNewPage7()">
+                <a href="{{ url_for('product7') }}">
+                <button class="description-button">
                     <div class="description">
                         <div id="fav1">Taste 3 of our favorites</div>
                         <br>
@@ -121,10 +128,12 @@
                         From €2,25
                     </div>
                 </button>
+            </a>
             </td>
             <td>
                 <img src="{{ url_for('static', filename='images/image31.png') }}" alt="image5">
-                <button class="description-button" onclick="openNewPage8()">
+                <a href="{{ url_for('product8') }}">
+                <button class="description-button">
                     <div class="description">
                         <div id="fav1">Taste 3 of our favorites</div>
                         <br>
@@ -133,6 +142,7 @@
                         From €2,95
                     </div>
                 </button>
+            </a>
             </td>
         </tr>
     </table>
